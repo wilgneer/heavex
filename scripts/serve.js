@@ -29,8 +29,10 @@ http.createServer((req, res) => {
   try { rel = decodeURIComponent(req.url.split('?')[0]); } catch { res.writeHead(400).end(); return; }
   if (rel.endsWith('/')) rel += 'index.html';
 
-  const file = path.join(ROOT, path.normalize(rel));
+  let file = path.join(ROOT, path.normalize(rel));
   if (!file.startsWith(ROOT + path.sep)) { res.writeHead(403).end('403'); return; }
+  // cleanUrls como na Vercel: /api-whatsapp serve api-whatsapp.html
+  if (!path.extname(file) && fs.existsSync(`${file}.html`)) file += '.html';
 
   fs.stat(file, (err, stat) => {
     if (err || !stat.isFile()) { res.writeHead(404, { 'Content-Type': 'text/plain' }).end('404'); return; }

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>API oficial do WhatsApp — Heavex Connect</title>
+<meta name="description" content="Notificações, alertas, confirmações e mensagens transacionais saindo do seu sistema direto para o WhatsApp do cliente, pela API oficial.">
+<meta name="theme-color" content="#030504">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Heavex">
+<meta property="og:title" content="API oficial do WhatsApp — Heavex Connect">
+<meta property="og:description" content="Notificações, alertas, confirmações e mensagens transacionais saindo do seu sistema direto para o WhatsApp do cliente, pela API oficial.">
+<!-- TODO: og:url, og:image e <link rel="canonical"> com URL absoluta quando o domínio estiver definido -->
+<link rel="icon" href="assets/images/favicon.svg?v=1" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=1">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --bg:#030504;
+  --panel:#000;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.14);
+  --text:#f4f7f5;
+  --muted:#a3aba6;
+  --dim:#7f8782;
+  --green:#35e55f;
+  --green-deep:#0e8129;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI Variable Display","Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,"Roboto Mono",Consolas,monospace;
+  --nav-h:64px;
+  --gutter:16px;
+}
+@media (min-width:768px){:root{--gutter:32px}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--bg);color-scheme:dark;scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;overflow-x:clip}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,figure{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:8px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:fixed;left:16px;top:16px;z-index:100;padding:10px 16px;border-radius:999px;background:var(--green-deep);color:#fff;font-weight:600;transform:translateY(-200%);opacity:0}
+.skip:focus{transform:none;opacity:1}
+.wrap{width:min(100% - var(--gutter) * 2,1200px);margin-inline:auto}
+
+/* ── Navegação ───────────────────────────────────────── */
+.nav{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top)}
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(3,5,4,.94);border-bottom:1px solid var(--line);opacity:0;transition:opacity .4s var(--ease)}
+.nav.is-solid::before,.nav.is-open::before{opacity:1}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--nav-h)}
+.brand{display:flex;align-items:center;min-height:44px}
+.brand img{height:32px;width:auto}
+.nav-toggle{position:relative;width:44px;height:44px;margin-right:-10px;display:grid;place-items:center}
+.nav-toggle i{position:absolute;left:12px;right:12px;height:1.5px;background:#fff;border-radius:2px;transition:transform .35s var(--ease)}
+.nav-toggle i:first-child{transform:translateY(-4px)}
+.nav-toggle i:last-child{transform:translateY(4px)}
+.nav.is-open .nav-toggle i:first-child{transform:rotate(45deg)}
+.nav.is-open .nav-toggle i:last-child{transform:rotate(-45deg)}
+.nav-menu{position:absolute;top:100%;left:0;right:0;display:none;max-height:calc(100svh - var(--nav-h));overflow-y:auto;padding:8px var(--gutter) calc(24px + env(safe-area-inset-bottom));background:#030504;border-bottom:1px solid var(--line)}
+.nav.is-open .nav-menu{display:block}
+.nav-links a{display:flex;align-items:center;justify-content:space-between;min-height:56px;border-bottom:1px solid var(--line);font-size:1.125rem;letter-spacing:-.01em}
+.nav-links a::after{content:"→";color:var(--green);font-family:var(--mono)}
+.nav-cta{margin-top:20px;width:100%;justify-content:center}
+@media (min-width:900px){
+  .nav::before{background:rgba(3,5,4,.72);-webkit-backdrop-filter:saturate(160%) blur(18px);backdrop-filter:saturate(160%) blur(18px)}
+  .nav-toggle{display:none}
+  .nav-menu{position:static;display:flex;align-items:center;gap:20px;max-height:none;overflow:visible;padding:0;background:none;border:0}
+  .nav-links{display:flex;gap:2px}
+  .nav-links a{min-height:40px;padding:0 12px;border:0;border-radius:999px;font-size:.8125rem;color:var(--muted);transition:color .2s,background-color .2s}
+  .nav-links a::after{content:none}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  .nav-cta{margin:0;width:auto;min-height:40px;padding:0 18px;font-size:.8125rem}
+}
+
+/* ── Base ────────────────────────────────────────────── */
+.kicker{display:inline-flex;align-items:center;gap:12px;font:500 .75rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.kicker::before{content:"";width:28px;height:1px;background:currentColor;box-shadow:0 0 8px currentColor}
+.h2{margin-top:18px;font-size:clamp(1.875rem,7.4vw,3.75rem);font-weight:700;line-height:1;letter-spacing:-.04em;text-transform:uppercase;text-wrap:balance}
+.section{position:relative;padding:clamp(72px,10vw,128px) 0}
+.section::before{content:"";position:absolute;top:0;left:50%;width:min(1200px,100% - var(--gutter) * 2);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--line-2) 20%,var(--line-2) 80%,transparent)}
+.lead{margin-top:18px;max-width:52ch;font-size:clamp(1.0625rem,1.6vw,1.25rem);line-height:1.55;color:#c9d1cc;text-wrap:pretty}
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 26px;border-radius:999px;overflow:hidden;font-size:1rem;font-weight:600;white-space:nowrap;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-green{background:var(--green-deep);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 0 1px rgba(53,229,95,.6),0 12px 40px -12px rgba(53,229,95,.75)}
+.btn-green::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:sheen 4.5s var(--ease) 1.2s infinite;animation-play-state:paused}
+.is-live .btn-green::after,.nav-cta::after{animation-play-state:running}
+@keyframes sheen{0%{transform:translateX(-120%)}35%,100%{transform:translateX(120%)}}
+.btn-ghost{border:1px solid var(--line-2);color:#dfe6e1}
+@media (hover:hover){
+  .btn-green:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 0 0 1px var(--green),0 18px 50px -12px rgba(53,229,95,.95)}
+  .btn-ghost:hover{border-color:var(--green);color:#fff}
+}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal.is-in{opacity:1;transform:none}
+
+/* ── Hero ────────────────────────────────────────────── */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:calc(var(--nav-h) + 56px) 0 64px}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(70% 55% at 15% 0%,rgba(53,229,95,.16),transparent 60%),radial-gradient(60% 50% at 90% 20%,rgba(53,229,95,.08),transparent 60%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.45;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(70% 60% at 30% 30%,#000,transparent 75%);mask-image:radial-gradient(70% 60% at 30% 30%,#000,transparent 75%)}
+.hero-in{display:grid;gap:48px;align-items:center}
+@media (min-width:900px){.hero{padding:calc(var(--nav-h) + 80px) 0 96px}.hero-in{grid-template-columns:1.05fr .95fr;gap:64px}}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 12px;border:1px solid var(--line-2);border-radius:999px;background:rgba(0,0,0,.4);font:500 .6875rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#dfe6e1}
+.badge svg{width:15px;height:15px;color:var(--green)}
+.h1{margin-top:22px;font-size:clamp(2.25rem,9vw,4.75rem);font-weight:700;line-height:.95;letter-spacing:-.045em;text-wrap:balance;background:linear-gradient(180deg,#fff 40%,#b9c4bd 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.h1 em{font-style:normal;background:linear-gradient(90deg,#b6ffc8,var(--green) 50%,#1fb247);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+@media (max-width:519.98px){.hero-cta .btn{width:100%;justify-content:center}}
+.hero-note{margin-top:18px;font:500 .75rem/1.5 var(--mono);letter-spacing:.04em;color:var(--dim)}
+
+/* celular com a conversa de exemplo */
+.phone{position:relative;justify-self:center;width:min(320px,86vw);padding:10px;border:1px solid var(--line-2);border-radius:40px;background:#050505;box-shadow:0 50px 100px -40px rgba(53,229,95,.35),0 0 0 1px rgba(0,0,0,.6)}
+.phone::before{content:"";position:absolute;left:50%;top:20px;z-index:2;width:76px;height:20px;border-radius:12px;background:#050505;transform:translateX(-50%)}
+.phone-screen{border-radius:31px;overflow:hidden;background:linear-gradient(180deg,#0a0f0c,#050705)}
+.phone-bar{display:flex;align-items:center;gap:10px;padding:34px 14px 12px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03)}
+.phone-avatar{display:grid;place-items:center;width:34px;height:34px;flex:none;border-radius:50%;background:rgba(53,229,95,.12);border:1px solid rgba(53,229,95,.35)}
+.phone-avatar svg{width:18px;height:18px}
+.phone-name{font-size:.875rem;font-weight:600;line-height:1.2}
+.phone-status{display:flex;align-items:center;gap:5px;font:500 .625rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.phone-status svg{width:11px;height:11px}
+.chat{display:grid;gap:10px;padding:16px 14px 20px;min-height:330px;align-content:start}
+.msg{max-width:84%;padding:9px 12px;border-radius:14px;font-size:.8125rem;line-height:1.4}
+.msg b{display:block;font-weight:600}
+.msg time{display:block;margin-top:4px;font:500 .5625rem/1 var(--mono);color:rgba(255,255,255,.45)}
+.msg-biz{justify-self:start;border-top-left-radius:4px;background:#121814;border:1px solid var(--line)}
+.msg-cli{justify-self:end;border-top-right-radius:4px;background:#0e8129;border:1px solid rgba(53,229,95,.55);color:#fff}
+.msg-cli time{color:rgba(255,255,255,.7)}
+.js .phone[data-live] .msg{opacity:0}
+.js .phone.is-live .msg{animation:msg-in .5s var(--ease) both;animation-delay:calc(var(--i) * .7s + .2s)}
+@keyframes msg-in{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.typing{justify-self:start;display:flex;gap:4px;padding:11px 14px;border-radius:14px;border-top-left-radius:4px;background:#121814;border:1px solid var(--line)}
+.typing i{width:5px;height:5px;border-radius:50%;background:var(--green);opacity:.5;animation:typing 1.2s ease-in-out infinite;animation-play-state:paused}
+.phone.is-live .typing i{animation-play-state:running}
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+@keyframes typing{30%{opacity:1;transform:translateY(-3px)}}
+.phone-caption{margin-top:14px;text-align:center;font:500 .625rem/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+/* ── Recursos ────────────────────────────────────────── */
+.feats{display:grid;gap:12px;margin-top:40px}
+@media (min-width:640px){.feats{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.feats{grid-template-columns:repeat(3,1fr);gap:16px}}
+.feat{display:flex;align-items:flex-start;gap:14px;padding:20px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#070a08,#000);transition:border-color .3s var(--ease),transform .3s var(--ease)}
+.feat svg{width:22px;height:22px;flex:none;color:var(--green);fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.feat h3{font-size:1.0625rem;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+@media (hover:hover){.feat:hover{border-color:rgba(53,229,95,.4);transform:translateY(-3px)}}
+
+/* ── Oficial x não oficial ───────────────────────────── */
+.compare{display:grid;gap:16px;margin-top:40px}
+@media (min-width:900px){.compare{grid-template-columns:1.05fr .95fr;gap:20px}}
+.col{padding:26px 24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#070a08,#000)}
+.col-ok{border-color:rgba(53,229,95,.4);box-shadow:0 30px 80px -50px rgba(53,229,95,.8)}
+.col h3{display:flex;align-items:center;gap:10px;font-size:1.125rem;font-weight:600;letter-spacing:-.01em}
+.col h3 svg{width:20px;height:20px;flex:none}
+.col ul{display:grid;gap:12px;margin-top:20px;font-size:.9375rem;line-height:1.45}
+.col li{position:relative;padding-left:28px;color:#dfe6e1}
+.col li::before{content:"";position:absolute;left:0;top:.1em;width:18px;height:18px;border-radius:50%}
+.col-ok li::before{border:1px solid rgba(53,229,95,.45);background:rgba(53,229,95,.12)}
+.col-ok li::after{content:"✓";position:absolute;left:0;top:.1em;width:18px;height:18px;font-size:.625rem;line-height:18px;text-align:center;color:var(--green)}
+.col-no{color:var(--muted)}
+.col-no li{color:var(--muted)}
+.col-no li::before{border:1px solid rgba(255,107,107,.35);background:rgba(255,107,107,.08)}
+.col-no li::after{content:"×";position:absolute;left:0;top:.1em;width:18px;height:18px;font-size:.75rem;line-height:17px;text-align:center;color:#ff6b6b}
+
+/* ── Como funciona ───────────────────────────────────── */
+.steps{display:grid;gap:12px;margin-top:40px;counter-reset:step}
+@media (min-width:768px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.steps{grid-template-columns:repeat(4,1fr);gap:16px}}
+.step{position:relative;padding:24px 22px 22px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,#070a08,#000);overflow:hidden}
+.step::before{content:"";position:absolute;top:0;left:0;width:45%;height:1px;background:linear-gradient(90deg,transparent,var(--green) 70%,#eafff0);box-shadow:0 0 10px 1px rgba(53,229,95,.5);transform:translateX(-100%);animation:edge 3.6s linear infinite;animation-play-state:paused}
+.steps.is-live .step::before{animation-play-state:running}
+.step:nth-child(2)::before{animation-delay:-.9s}
+.step:nth-child(3)::before{animation-delay:-1.8s}
+.step:nth-child(4)::before{animation-delay:-2.7s}
+@keyframes edge{to{transform:translateX(200%)}}
+.step-n{font:500 .6875rem/1 var(--mono);letter-spacing:.2em;color:var(--green)}
+.step h3{margin-top:14px;font-size:1.125rem;font-weight:600;letter-spacing:-.015em}
+.step p{margin-top:8px;font-size:.9375rem;line-height:1.5;color:var(--muted);text-wrap:pretty}
+
+/* ── Chamada final ───────────────────────────────────── */
+.final{position:relative;overflow:hidden;padding:clamp(48px,7vw,72px) clamp(24px,5vw,56px);border:1px solid var(--line-2);border-radius:28px;background:radial-gradient(80% 90% at 0% 0%,rgba(53,229,95,.14),transparent 60%),linear-gradient(180deg,#070a08,#000)}
+.final h2{font-size:clamp(1.75rem,5vw,2.75rem);font-weight:700;letter-spacing:-.035em;line-height:1.05;text-wrap:balance}
+.final p{margin-top:16px;max-width:54ch;color:#c9d1cc;line-height:1.55}
+.final .btn{margin-top:28px}
+@media (max-width:519.98px){.final .btn{width:100%;justify-content:center}}
+
+/* ── Rodapé ──────────────────────────────────────────── */
+.foot{position:relative;padding:56px 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.foot::before{content:"";position:absolute;top:-1px;left:50%;width:min(560px,80%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--green),transparent);box-shadow:0 0 18px rgba(53,229,95,.8)}
+.foot-top{display:grid;gap:24px}
+@media (min-width:900px){.foot-top{grid-template-columns:auto 1fr auto;align-items:center}}
+.foot-links{display:flex;flex-wrap:wrap;gap:0 22px;font-size:.9375rem;color:var(--muted)}
+@media (min-width:900px){.foot-links{justify-content:center}}
+.foot-links a{display:inline-flex;align-items:center;min-height:44px;transition:color .2s}
+.foot-wa{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600;color:#fff}
+.foot-wa svg{width:20px;height:20px;color:var(--green)}
+@media (hover:hover){.foot-links a:hover{color:#fff}.foot-wa:hover{color:var(--green)}}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin-top:32px;padding-top:22px;border-top:1px solid var(--line);font:500 .75rem/1.6 var(--mono);letter-spacing:.06em;color:var(--dim)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{transform:none}
+  .btn-green::after,.step::before{display:none}
+  .typing i{animation:none!important}
+  .js .phone[data-live] .msg{opacity:1}
+  .js .phone.is-live .msg{animation:none!important}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Heavex Connect — API oficial do WhatsApp","serviceType":"Integração de mensagens pela API oficial do WhatsApp","provider":{"@type":"Organization","name":"Heavex","taxID":"69.138.557/0001-90"},"areaServed":"BR","description":"Notificações, alertas, confirmações e mensagens transacionais enviadas pelo sistema da empresa para o WhatsApp do cliente."}</script>
+<script src="assets/js/main.js?v=2" defer></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav" data-nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="Heavex — início">
+      <img src="assets/images/logo-nav.webp?v=1" width="146" height="72" alt="Heavex" decoding="async">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu" data-nav-toggle><i></i><i></i></button>
+    <div class="nav-menu" id="nav-menu">
+      <nav aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="/#quem-somos">Quem somos</a></li>
+          <li><a href="/#o-que-fazemos">O que fazemos</a></li>
+          <li><a href="/#resultados">Resultados</a></li>
+          <li><a href="/">Voltar ao site</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-green nav-cta" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20API%20oficial%20do%20WhatsApp." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+        Fale conosco
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title" data-live>
+    <div class="wrap hero-in">
+      <div>
+        <p class="badge">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Heavex Connect
+        </p>
+        <h1 class="h1" id="hero-title">API <em>oficial</em> do WhatsApp</h1>
+        <p class="lead">Notificações, alertas, confirmações e mensagens transacionais saindo do seu sistema direto para o WhatsApp do cliente.</p>
+        <div class="hero-cta">
+          <a class="btn btn-green" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20API%20oficial%20do%20WhatsApp." target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+            Quero a API oficial<span class="sr-only"> — falar pelo WhatsApp (abre em nova aba)</span>
+          </a>
+          <a class="btn btn-ghost" href="#recursos">Ver o que dá para enviar</a>
+        </div>
+        <p class="hero-note">Unidade Heavex Business Systems · Integração por API · Painel de envios</p>
+      </div>
+
+      <figure class="phone" data-live>
+        <div class="phone-screen">
+          <div class="phone-bar">
+            <span class="phone-avatar" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><path d="M32 4.5 55.8 18.25v27.5L32 59.5 8.2 45.75v-27.5Z" fill="#35e55f" stroke="#35e55f" stroke-width="5" stroke-linejoin="round"/><path d="M32 15 46.7 23.5v17L32 49 17.3 40.5v-17Z" fill="#000"/></svg>
+            </span>
+            <span>
+              <span class="phone-name">Sua Empresa</span>
+              <span class="phone-status"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 9.6 4.5 6.2 4l-.5 3.4L2.6 9.4 4.2 12l-1.6 2.6 3.1 2 .5 3.4 3.4-.5L12 22l2.4-2.5 3.4.5.5-3.4 3.1-2L19.8 12l1.6-2.6-3.1-2-.5-3.4-3.4.5Zm-1.2 13.2-3.3-3.3 1.5-1.5 1.8 1.8 4.6-4.6 1.5 1.5Z"/></svg>Conta oficial</span>
+            </span>
+          </div>
+          <ol class="chat">
+            <li class="msg msg-biz" style="--i:0"><b>Pedido #1042 confirmado</b>Previsão de entrega: quinta-feira.<time>09:12</time></li>
+            <li class="msg msg-biz" style="--i:1">Seu atendimento é amanhã às 14h. Responda <b style="display:inline">1</b> para confirmar.<time>09:12</time></li>
+            <li class="msg msg-cli" style="--i:2">1<time>09:13</time></li>
+            <li class="msg msg-biz" style="--i:3">Confirmado! Até amanhã. 💚<time>09:13</time></li>
+            <li class="typing" aria-hidden="true"><i></i><i></i><i></i></li>
+          </ol>
+        </div>
+        <figcaption class="phone-caption">Exemplo de conversa</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- O QUE DÁ PARA ENVIAR -->
+  <section class="section" id="recursos" aria-labelledby="recursos-title">
+    <div class="wrap">
+      <p class="kicker reveal" aria-hidden="true">01</p>
+      <h2 class="h2 reveal" id="recursos-title">O que dá para enviar</h2>
+      <p class="lead reveal">Tudo que hoje é enviado no grito, no papel ou de celular pessoal passa a sair do sistema, com registro.</p>
+
+      <ul class="feats">
+        <li class="feat reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-2 8-2 8h16s-2-1-2-8"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/></svg><div><h3>Notificações por WhatsApp</h3></div></li>
+        <li class="feat reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17.5v.01"/></svg><div><h3>Alertas operacionais</h3></div></li>
+        <li class="feat reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 7.5 8.5-4.5 8.5 4.5v9L12 21l-8.5-4.5Z"/><path d="m3.5 7.5 8.5 4.5 8.5-4.5M12 12v9"/></svg><div><h3>Atualizações de pedidos</h3></div></li>
+        <li class="feat reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 1 1-3.3-6.5"/><path d="M21 4v5h-5"/><path d="M8.5 12h7M8.5 15.5h4"/></svg><div><h3>Comunicação com clientes</h3></div></li>
+        <li class="feat reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></svg><div><h3>Lembretes</h3></div></li>
+        <li class="feat reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6.5 9.5 17 4 11.5"/></svg><div><h3>Confirmações</h3></div></li>
+        <li class="feat reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2Z"/><path d="M9.5 8h5M9.5 12h5"/></svg><div><h3>Mensagens transacionais</h3></div></li>
+        <li class="feat reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13v3M12 12v4M16 14v2"/></svg><div><h3>Painel de envios</h3></div></li>
+        <li class="feat reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v5M15 3v5"/><path d="M7 8h10v4a5 5 0 0 1-10 0Z"/><path d="M12 17v4"/></svg><div><h3>Integração por API</h3></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- POR QUE A API OFICIAL -->
+  <section class="section" id="oficial" aria-labelledby="oficial-title">
+    <div class="wrap">
+      <p class="kicker reveal" aria-hidden="true">02</p>
+      <h2 class="h2 reveal" id="oficial-title">Por que a API oficial</h2>
+      <!-- TODO (Wilgner): revisar esta comparação — texto escrito por mim -->
+      <div class="compare">
+        <div class="col col-ok reveal">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6Z"/><path d="m9 12 2 2 4-4.5"/></svg>Com a API oficial</h3>
+          <ul>
+            <li>Conta e número passam pela verificação oficial da Meta</li>
+            <li>Templates aprovados para falar com o cliente fora da janela de 24 horas</li>
+            <li>Vários atendentes no mesmo número, sem celular de ninguém</li>
+            <li>Integração direta com o seu sistema, ERP ou CRM</li>
+            <li>Registro de tudo que foi enviado, entregue e lido</li>
+            <li>Envio em escala, dentro das regras da plataforma</li>
+          </ul>
+        </div>
+        <div class="col col-no reveal" style="--d:.08s">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6Z"/><path d="m9.5 9.5 5 5m0-5-5 5"/></svg>Com robô não oficial</h3>
+          <ul>
+            <li>Risco de perder o número por uso fora dos termos</li>
+            <li>Sem suporte e sem garantia quando a conexão cai</li>
+            <li>Depende de um celular ligado em algum lugar</li>
+            <li>Difícil auditar o que foi enviado e para quem</li>
+            <li>Limite de volume e bloqueios sem aviso</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO IMPLANTAMOS -->
+  <section class="section" id="como" aria-labelledby="como-title">
+    <div class="wrap">
+      <p class="kicker reveal" aria-hidden="true">03</p>
+      <h2 class="h2 reveal" id="como-title">Como implantamos</h2>
+
+      <ol class="steps" data-live>
+        <li class="step reveal">
+          <p class="step-n" aria-hidden="true">01</p>
+          <h3>Conta e número</h3>
+          <p>Abrimos a conta na plataforma oficial e cuidamos da verificação do número da empresa.</p>
+        </li>
+        <li class="step reveal" style="--d:.06s">
+          <p class="step-n" aria-hidden="true">02</p>
+          <h3>Templates</h3>
+          <p>Escrevemos e submetemos as mensagens que a empresa mais envia, para aprovação da Meta.</p>
+        </li>
+        <li class="step reveal" style="--d:.12s">
+          <p class="step-n" aria-hidden="true">03</p>
+          <h3>Integração</h3>
+          <p>Conectamos ao seu sistema por API: o que acontece na operação vira mensagem sozinho.</p>
+        </li>
+        <li class="step reveal" style="--d:.18s">
+          <p class="step-n" aria-hidden="true">04</p>
+          <h3>Painel e acompanhamento</h3>
+          <p>Você acompanha envios, entregas e respostas em um painel, com histórico.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CHAMADA FINAL -->
+  <section class="section" aria-labelledby="final-title">
+    <div class="wrap">
+      <div class="final reveal" data-live>
+        <h2 id="final-title">Vamos ligar o WhatsApp no seu processo?</h2>
+        <p>Conte como sua operação avisa o cliente hoje. A gente desenha o fluxo, aprova os templates e coloca no ar.</p>
+        <a class="btn btn-green" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Quero%20implantar%20a%20API%20oficial%20do%20WhatsApp%20na%20minha%20opera%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Falar com a Heavex<span class="sr-only"> pelo WhatsApp (abre em nova aba)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="/" aria-label="Heavex — voltar ao início">
+        <img src="assets/images/logo-nav.webp?v=1" width="146" height="72" alt="Heavex" loading="lazy" decoding="async">
+      </a>
+      <nav aria-label="Rodapé">
+        <ul class="foot-links">
+          <li><a href="/#quem-somos">Quem somos</a></li>
+          <li><a href="/#o-que-fazemos">O que fazemos</a></li>
+          <li><a href="/#como-funciona">Como funciona</a></li>
+          <li><a href="/#resultados">Resultados</a></li>
+          <li><a href="/#clientes">Clientes</a></li>
+        </ul>
+      </nav>
+      <a class="foot-wa" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Heavex." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+        (31) 99989-5589<span class="sr-only"> no WhatsApp (abre em nova aba)</span>
+      </a>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Heavex. Todos os direitos reservados.</p>
+      <p>CNPJ 69.138.557/0001-90</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

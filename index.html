@@ -71,16 +71,22 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .nav.is-open .nav-menu{display:block}
 .nav-links a{display:flex;align-items:center;justify-content:space-between;min-height:56px;border-bottom:1px solid var(--line);font-size:1.125rem;letter-spacing:-.01em}
 .nav-links a::after{content:"→";color:var(--green);font-family:var(--mono)}
-.nav-cta{margin-top:20px;width:100%;justify-content:center}
-@media (min-width:1080px){
+.btn-ghost{border:1px solid var(--line-2);color:#dfe6e1}
+.btn-ghost svg{color:var(--green)}
+@media (hover:hover){.btn-ghost:hover{border-color:var(--green);color:#fff}}
+.nav-api,.nav-cta{margin-top:12px;width:100%;justify-content:center}
+.nav-api{margin-top:20px}
+@media (min-width:1180px){
   .nav::before{background:rgba(3,5,4,.72);-webkit-backdrop-filter:saturate(160%) blur(18px);backdrop-filter:saturate(160%) blur(18px)}
   .nav-toggle{display:none}
   .nav-menu{position:static;display:flex;align-items:center;gap:20px;max-height:none;overflow:visible;padding:0;background:none;border:0}
   .nav-links{display:flex;gap:2px}
-  .nav-links a{min-height:40px;padding:0 12px;border:0;border-radius:999px;font-size:.8125rem;color:var(--muted);transition:color .2s,background-color .2s}
+  .nav-links a{min-height:40px;padding:0 10px;border:0;border-radius:999px;font-size:.8125rem;color:var(--muted);transition:color .2s,background-color .2s}
   .nav-links a::after{content:none}
   .nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
-  .nav-cta{margin:0;width:auto;min-height:40px;padding:0 18px;font-size:.8125rem}
+  .nav-api,.nav-cta{margin:0;width:auto;min-height:40px;font-size:.8125rem}
+  .nav-api{padding:0 16px}
+  .nav-cta{padding:0 18px}
 }
 
 /* ── Elementos base ──────────────────────────────────── */
@@ -165,6 +171,55 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .about-tag{position:absolute;left:18px;right:18px;bottom:18px;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .about-tag img{width:auto;height:30px}
 .about-tag span{font:500 .6875rem/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+
+/* ── O que a Heavex faz (unidades) ───────────────────── */
+.units{margin-top:44px;border-top:1px solid var(--line-2)}
+.unit{border-bottom:1px solid var(--line-2)}
+.unit-head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:22px 0;cursor:pointer;list-style:none}
+.unit-head::-webkit-details-marker{display:none}
+.unit-plain .unit-head{cursor:default}
+.unit-idx{align-self:start;margin-top:.4em;font:500 .6875rem/1 var(--mono);letter-spacing:.14em;color:var(--dim)}
+.unit-title{display:flex;flex-direction:column;gap:6px;min-width:0}
+.unit-name{font-size:clamp(1.375rem,4.6vw,2.125rem);font-weight:700;letter-spacing:-.03em;line-height:1.05;text-wrap:balance}
+.unit-name b{font-weight:700;color:var(--green)}
+.unit-sub{font-size:.9375rem;line-height:1.35;color:var(--muted)}
+.unit-chevron{width:26px;height:26px;flex:none;color:var(--muted);transition:transform .35s var(--ease),color .2s}
+.unit[open] .unit-chevron{transform:rotate(180deg);color:var(--green)}
+@media (hover:hover){.unit-head:hover .unit-name{color:#fff}.unit-head:hover .unit-chevron{color:var(--green)}}
+.unit-body{padding:2px 0 34px;animation:unit-in .4s var(--ease)}
+@keyframes unit-in{from{opacity:0;transform:translateY(-8px)}}
+.unit-desc{max-width:64ch;color:#c9d1cc;font-size:1.0625rem;line-height:1.6;text-wrap:pretty}
+.unit-cols{display:grid;gap:26px;margin-top:24px}
+.unit-label{margin-bottom:14px;font:500 .6875rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.unit-list{display:grid;gap:9px 24px;font-size:.9375rem;color:#dfe6e1}
+.unit-list li{position:relative;padding-left:18px;line-height:1.45}
+.unit-list li::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(53,229,95,.55)}
+.unit-res{display:grid;gap:10px;font-size:.9375rem;color:#dfe6e1}
+.unit-res li{position:relative;padding-left:28px;line-height:1.45}
+.unit-res li::before{content:"";position:absolute;left:0;top:.1em;width:18px;height:18px;border-radius:50%;border:1px solid rgba(53,229,95,.45);background:rgba(53,229,95,.12)}
+.unit-res li::after{content:"✓";position:absolute;left:0;top:.1em;width:18px;height:18px;font-size:.625rem;line-height:18px;text-align:center;color:var(--green)}
+.unit-quote{max-width:72ch;margin-top:28px;padding:18px 22px;border-left:2px solid var(--green);border-radius:0 14px 14px 0;background:linear-gradient(90deg,rgba(53,229,95,.09),transparent 70%);font-size:1.0625rem;line-height:1.55;color:#c9d1cc;text-wrap:pretty}
+.unit-quote b{display:block;margin-bottom:4px;font-weight:600;color:#fff}
+.connect{margin-top:26px;padding:20px;border:1px solid var(--line-2);border-radius:18px;background:radial-gradient(85% 70% at 0% 0%,rgba(53,229,95,.1),transparent 60%),#050605}
+.connect-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.connect-name{font-size:1.125rem;font-weight:600;letter-spacing:-.02em}
+.connect-name b{color:var(--green)}
+.connect-tag{padding:7px 11px;border:1px solid rgba(53,229,95,.4);border-radius:999px;background:rgba(53,229,95,.08);font:600 .625rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#e9f7ec}
+.connect .unit-list{margin-top:16px}
+.connect-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:14px;font:500 .8125rem/1 var(--mono);letter-spacing:.06em;color:var(--green);transition:gap .2s var(--ease)}
+@media (hover:hover){.connect-link:hover{gap:14px;color:#eafff0}}
+@media (min-width:640px){.unit-list{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:900px){
+  .units{margin-top:56px}
+  .unit-head{gap:24px;padding:26px 0}
+  .unit-title{flex-direction:row;align-items:baseline;gap:20px}
+  .unit-name{flex:none}
+  .unit-sub{font-size:1rem}
+  .unit-body{padding-bottom:42px}
+  .unit-cols{grid-template-columns:1.3fr 1fr;gap:56px;margin-top:28px}
+  .unit-list{grid-template-columns:repeat(2,1fr);gap:10px 28px}
+  .connect .unit-list{grid-template-columns:repeat(3,1fr)}
+}
 
 /* ── Nosso método ────────────────────────────────────── */
 .method-grid{margin-top:48px}
@@ -306,7 +361,7 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 /* ── Resultados ──────────────────────────────────────── */
 .results-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px}
 .seal{position:relative;flex:none;width:clamp(132px,36vw,232px);aspect-ratio:1}
-.seal::before{content:"";position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(closest-side,rgba(53,229,95,.2),transparent)}
+.seal::before{content:"";position:absolute;inset:-11%;border-radius:50%;background:radial-gradient(closest-side,rgba(53,229,95,.2),transparent)}
 .seal svg{position:absolute;inset:0;width:100%;height:100%}
 .seal-ring{animation:spin-dot 38s linear infinite;animation-play-state:paused}
 .seal-ring text{font:600 12.5px var(--mono);letter-spacing:.2em;fill:#dfe9e2}
@@ -356,9 +411,9 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .foot{position:relative;padding:64px 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
 .foot::before{content:"";position:absolute;top:-1px;left:50%;width:min(560px,80%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--green),transparent);box-shadow:0 0 18px rgba(53,229,95,.8)}
 .foot-top{display:grid;gap:28px}
-@media (min-width:1080px){.foot-top{grid-template-columns:auto 1fr auto;align-items:center}}
+@media (min-width:1180px){.foot-top{grid-template-columns:auto 1fr auto;align-items:center}}
 .foot-links{display:flex;flex-wrap:wrap;gap:0 22px;font-size:.9375rem;color:var(--muted)}
-@media (min-width:1080px){.foot-links{justify-content:center}}
+@media (min-width:1180px){.foot-links{justify-content:center}}
 .foot-links a{display:inline-flex;align-items:center;min-height:44px;transition:color .2s}
 .foot-wa{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600;color:#fff}
 .foot-wa svg{width:20px;height:20px;color:var(--green)}
@@ -392,6 +447,7 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <nav aria-label="Principal">
         <ul class="nav-links">
           <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#o-que-fazemos">O que fazemos</a></li>
           <li><a href="#metodo">Método</a></li>
           <li><a href="#solucoes">Soluções</a></li>
           <li><a href="#como-funciona">Como funciona</a></li>
@@ -399,6 +455,10 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
           <li><a href="#clientes">Clientes</a></li>
         </ul>
       </nav>
+      <a class="btn btn-ghost nav-api" href="/api-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+        API do WhatsApp
+      </a>
       <a class="btn btn-green nav-cta" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Heavex." target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
         Fale conosco
@@ -462,8 +522,8 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
         <!-- TODO (Wilgner): revisar o texto institucional -->
         <p class="about-copy reveal">A Heavex é uma empresa de tecnologia que desenha, desenvolve e coloca no ar processos digitais para negócios que querem crescer com organização.</p>
         <p class="about-copy reveal">Unimos planejamento, layout e produção para transformar operações manuais em sistemas, plataformas e páginas que funcionam de verdade.</p>
-        <ul class="chips reveal" aria-label="O que entregamos">
-          <li>Landing pages</li><li>Sites institucionais</li><li>Plataformas</li><li>Sistemas</li><li>E-commerce</li><li>Integrações</li>
+        <ul class="chips reveal" aria-label="Unidades da Heavex">
+          <li>Experience</li><li>Mobility Intelligence</li><li>Business Systems</li><li>Academy</li><li>Security</li>
         </ul>
       </div>
       <!-- Espaço para foto da equipe: troque a <picture> por <img src="assets/images/equipe.webp" ...> -->
@@ -480,10 +540,160 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     </div>
   </section>
 
+  <!-- O QUE A HEAVEX FAZ -->
+  <section class="section" id="o-que-fazemos" aria-labelledby="fazemos-title">
+    <div class="wrap">
+      <p class="kicker reveal" aria-hidden="true">02</p>
+      <h2 class="h2 reveal" id="fazemos-title">O que a Heavex faz</h2>
+
+      <div class="units reveal">
+
+        <details class="unit" name="unidade" open>
+          <summary class="unit-head">
+            <span class="unit-idx" aria-hidden="true">01</span>
+            <span class="unit-title">
+              <span class="unit-name"><b>Heavex</b> Experience</span>
+              <span class="unit-sub">Estratégia Visual e Experiência Digital</span>
+            </span>
+            <svg class="unit-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5 12 15.5 18 9.5"/></svg>
+          </summary>
+          <div class="unit-body">
+            <p class="unit-desc">Transformamos a forma como empresas se apresentam, se comunicam e convertem no ambiente digital.</p>
+            <div class="unit-cols">
+              <div>
+                <h3 class="unit-label">Soluções</h3>
+                <ul class="unit-list">
+                  <li>Estratégia visual</li><li>Design</li><li>Web design</li><li>UX e UI</li><li>Sites estratégicos</li><li>Landing pages</li><li>Landing pages editáveis</li><li>Painéis de conversão</li><li>Portais</li><li>Interfaces de sistemas</li><li>Identidade de produtos digitais</li><li>Testes e otimização da experiência</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="unit-label">Resultado entregue</h3>
+                <ul class="unit-res">
+                  <li>Melhor posicionamento</li><li>Mais credibilidade</li><li>Mais conversões</li><li>Facilidade de uso</li><li>Melhor experiência do cliente</li><li>Dados sobre o comportamento do usuário</li>
+                </ul>
+              </div>
+            </div>
+            <p class="unit-quote"><b>Não vendemos apenas design.</b>Criamos experiências digitais que orientam o usuário, comunicam valor e produzem resultados mensuráveis.</p>
+          </div>
+        </details>
+
+        <details class="unit" name="unidade">
+          <summary class="unit-head">
+            <span class="unit-idx" aria-hidden="true">02</span>
+            <span class="unit-title">
+              <span class="unit-name"><b>Heavex</b> Mobility Intelligence</span>
+              <span class="unit-sub">Inteligência de Mobilidade e Geolocalização</span>
+            </span>
+            <svg class="unit-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5 12 15.5 18 9.5"/></svg>
+          </summary>
+          <div class="unit-body">
+            <p class="unit-desc">Estruturamos operações que dependem de veículos, equipes externas, rotas, deslocamentos e localização.</p>
+            <div class="unit-cols">
+              <div>
+                <h3 class="unit-label">Soluções</h3>
+                <ul class="unit-list">
+                  <li>Sistemas logísticos</li><li>Geolocalização</li><li>Mapas personalizados</li><li>Rastreamento</li><li>Planejamento de rotas</li><li>Controle de trajetos</li><li>Monitoramento de paradas</li><li>Cercas virtuais</li><li>Histórico de posições</li><li>Cálculo de quilometragem</li><li>Previsão de chegada</li><li>Alertas operacionais</li><li>BI geográfico</li><li>Mapas de calor</li><li>Análises regionais</li><li>Rentabilidade por rota</li><li>Integrações com APIs de mapas e rastreadores</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="unit-label">Resultado entregue</h3>
+                <ul class="unit-res">
+                  <li>Redução de atrasos</li><li>Controle da operação externa</li><li>Melhor distribuição de equipes</li><li>Redução de custos</li><li>Visibilidade em tempo real</li><li>Identificação de gargalos geográficos</li><li>Decisões baseadas em localização</li>
+                </ul>
+              </div>
+            </div>
+            <p class="unit-quote"><b>Não entregamos apenas um mapa.</b>Transformamos dados de localização em controle, inteligência e decisões operacionais.</p>
+          </div>
+        </details>
+
+        <details class="unit" name="unidade">
+          <summary class="unit-head">
+            <span class="unit-idx" aria-hidden="true">03</span>
+            <span class="unit-title">
+              <span class="unit-name"><b>Heavex</b> Business Systems</span>
+              <span class="unit-sub">Sistemas e Inteligência de Processos</span>
+            </span>
+            <svg class="unit-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5 12 15.5 18 9.5"/></svg>
+          </summary>
+          <div class="unit-body">
+            <p class="unit-desc">Criamos, conectamos e implantamos soluções que organizam e melhoram os processos empresariais.</p>
+            <div class="unit-cols">
+              <div>
+                <h3 class="unit-label">Soluções</h3>
+                <ul class="unit-list">
+                  <li>SaaS</li><li>CRM</li><li>ERP</li><li>Sistemas B2B</li><li>Plataformas</li><li>Aplicativos</li><li>Sistemas personalizados</li><li>Sistemas de notificações</li><li>Automação de processos</li><li>Integração de APIs</li><li>Integração de pagamentos</li><li>WhatsApp (API oficial)</li><li>Dashboards</li><li>Análise de dados</li><li>Portais de clientes e fornecedores</li><li>Digitalização de processos</li><li>Inteligência artificial aplicada à operação</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="unit-label">Resultado entregue</h3>
+                <ul class="unit-res">
+                  <li>Menos trabalho manual</li><li>Informações centralizadas</li><li>Redução de erros</li><li>Processos rastreáveis</li><li>Sistemas integrados</li><li>Dados confiáveis</li><li>Mais produtividade</li><li>Decisões mais rápidas</li>
+                </ul>
+              </div>
+            </div>
+            <p class="unit-quote"><b>Não desenvolvemos apenas sistemas.</b>Estruturamos o processo e implementamos a tecnologia necessária para fazê-lo funcionar melhor.</p>
+
+            <div class="connect">
+              <div class="connect-head">
+                <span class="connect-name"><b>Heavex</b> Connect</span>
+                <span class="connect-tag">API oficial do WhatsApp</span>
+              </div>
+              <ul class="unit-list">
+                <li>Notificações por WhatsApp</li><li>Alertas operacionais</li><li>Atualizações de pedidos</li><li>Comunicação com clientes</li><li>Lembretes</li><li>Confirmações</li><li>Mensagens transacionais</li><li>Painel de envios</li><li>Integração por API</li>
+              </ul>
+              <a class="connect-link" href="/api-whatsapp">Ver a página do Heavex Connect<span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </details>
+
+        <details class="unit" name="unidade">
+          <summary class="unit-head">
+            <span class="unit-idx" aria-hidden="true">04</span>
+            <span class="unit-title">
+              <span class="unit-name"><b>Heavex</b> Academy</span>
+              <span class="unit-sub">Ensino, Treinamento e Adoção Tecnológica</span>
+            </span>
+            <svg class="unit-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5 12 15.5 18 9.5"/></svg>
+          </summary>
+          <div class="unit-body">
+            <p class="unit-desc">Preparamos pessoas e empresas para utilizar corretamente os processos e as tecnologias implantadas.</p>
+            <div class="unit-cols">
+              <div>
+                <h3 class="unit-label">Soluções</h3>
+                <ul class="unit-list">
+                  <li>Treinamentos corporativos</li><li>Implantação assistida</li><li>Capacitação de usuários</li><li>Manuais</li><li>Tutoriais</li><li>Books operacionais</li><li>Base de conhecimento</li><li>Treinamentos sobre sistemas</li><li>Treinamentos de IA</li><li>Segurança digital</li><li>Dados e dashboards</li><li>Formação para gestores</li><li>Onboarding</li><li>Acompanhamento pós-implantação</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="unit-label">Resultado entregue</h3>
+                <ul class="unit-res">
+                  <li>Maior adesão</li><li>Menos resistência</li><li>Menos erros</li><li>Equipes independentes</li><li>Padronização</li><li>Melhor aproveitamento das ferramentas</li><li>Continuidade operacional</li>
+                </ul>
+              </div>
+            </div>
+            <p class="unit-quote"><b>Não oferecemos apenas cursos.</b>Garantimos que a tecnologia seja compreendida, adotada e utilizada para produzir resultados.</p>
+          </div>
+        </details>
+
+        <!-- TODO (Wilgner): mandar soluções e "resultado entregue" da Security para ela virar um item que abre, como as outras -->
+        <div class="unit unit-plain">
+          <div class="unit-head">
+            <span class="unit-idx" aria-hidden="true">05</span>
+            <span class="unit-title">
+              <span class="unit-name"><b>Heavex</b> Security</span>
+              <span class="unit-sub">Segurança Web e Investigação de Dados</span>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- NOSSO MÉTODO -->
   <section class="section" id="metodo" aria-labelledby="metodo-title">
     <div class="wrap">
-      <p class="kicker reveal" aria-hidden="true">02</p>
+      <p class="kicker reveal" aria-hidden="true">03</p>
       <h2 class="h2 reveal" id="metodo-title">Nosso método</h2>
 
       <ol class="method-grid rail" id="rail-metodo" tabindex="0" aria-label="Etapas do método" data-rail>
@@ -531,7 +741,7 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   <!-- O QUE NÓS RESOLVEMOS? -->
   <section class="section" id="solucoes" aria-labelledby="solucoes-title">
     <div class="wrap">
-      <p class="kicker reveal" aria-hidden="true">03</p>
+      <p class="kicker reveal" aria-hidden="true">04</p>
       <h2 class="h2 reveal" id="solucoes-title">O que nós resolvemos?</h2>
 
       <ul class="pains" data-pains>
@@ -556,7 +766,7 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   <section class="section flow" id="como-funciona" aria-labelledby="flow-title" data-flow>
     <div class="wrap">
       <div class="flow-head">
-        <p class="kicker reveal" aria-hidden="true">04</p>
+        <p class="kicker reveal" aria-hidden="true">05</p>
         <h2 class="h2 reveal" id="flow-title">Como funciona?</h2>
       </div>
 
@@ -639,7 +849,7 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     <div class="wrap">
       <div class="results-head">
         <div>
-          <p class="kicker reveal" aria-hidden="true">05</p>
+          <p class="kicker reveal" aria-hidden="true">06</p>
           <h2 class="h2 reveal" id="resultados-title">Resultados</h2>
         </div>
 
@@ -779,7 +989,7 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   <!-- COM NOSSOS CLIENTES (espaço reservado para fotos) -->
   <section class="section" id="clientes" aria-labelledby="clientes-title">
     <div class="wrap">
-      <p class="kicker reveal" aria-hidden="true">06</p>
+      <p class="kicker reveal" aria-hidden="true">07</p>
       <h2 class="h2 reveal" id="clientes-title">Com nossos clientes</h2>
 
       <!-- Para publicar uma foto, troque o <div class="shot-empty"> do espaço por:
@@ -808,11 +1018,13 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <nav aria-label="Rodapé">
         <ul class="foot-links">
           <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#o-que-fazemos">O que fazemos</a></li>
           <li><a href="#metodo">Método</a></li>
           <li><a href="#solucoes">Soluções</a></li>
           <li><a href="#como-funciona">Como funciona</a></li>
           <li><a href="#resultados">Resultados</a></li>
           <li><a href="#clientes">Clientes</a></li>
+          <li><a href="/api-whatsapp">API do WhatsApp</a></li>
         </ul>
       </nav>
       <a class="foot-wa" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Heavex." target="_blank" rel="noopener noreferrer">
