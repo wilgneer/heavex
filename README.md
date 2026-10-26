@@ -24,6 +24,9 @@ Todos os CTAs abrem o WhatsApp **(31) 99989-5589** (`wa.me/5531999895589`), cada
 |---|---|---|
 | `/` | `index.html` | Landing page + site institucional |
 | `/api-whatsapp` | `api-whatsapp.html` | Página do **Heavex Connect** — API oficial do WhatsApp |
+| `/politica-de-privacidade` | `politica-de-privacidade.html` | Política de Privacidade (LGPD) |
+
+O link da política fica na faixa de baixo do rodapé, entre o copyright e o CNPJ, nas três páginas — não na lista de seções, onde ficava perdido como nono item.
 
 O botão **API do WhatsApp** fica no menu do topo da página inicial (e dentro do menu, no celular), ao lado do "Fale conosco". Também há link no bloco Heavex Connect e no rodapé.
 
@@ -37,6 +40,7 @@ O caminho sem `.html` funciona por `cleanUrls` na Vercel; o `scripts/serve.js` f
 |---|---|
 | `index.html` | Página inicial, com o CSS crítico inline |
 | `api-whatsapp.html` | Página da API oficial do WhatsApp (CSS inline próprio) |
+| `politica-de-privacidade.html` | Documento legal, com índice lateral e estilo de impressão |
 | `assets/js/main.js` | Menu, vídeo, reveals, galerias do celular, risco das dores, mapa |
 | `assets/videos/hero-{desktop,mobile}.{av1,h264}.mp4` | Loop do hero (2s → 9s do bruto) |
 | `assets/images/poster-*.{avif,webp}` | Primeiro quadro do loop, que também é o LCP |
@@ -75,6 +79,8 @@ Depois, suba o `?v=` nas referências (os assets usam cache de 1 ano).
 | `/` desktop | 100 | 100 | 100 | 100 | 0,3 s |
 | `/api-whatsapp` mobile | 100 | 100 | 100 | 100 | 0,9 s |
 | `/api-whatsapp` desktop | 100 | 100 | 100 | 100 | 0,3 s |
+| `/politica-de-privacidade` mobile | 100 | 100 | 100 | 100 | 0,9 s |
+| `/politica-de-privacidade` desktop | 100 | 100 | 100 | 100 | 0,3 s |
 
 Fluidez no celular (390 px, DPR 3, CPU 4× mais lenta, rolagem da página inteira): ~58 fps de média e p95 de 16,8 ms por quadro. É o mesmo resultado da página sem animação nenhuma.
 
@@ -88,6 +94,16 @@ Como a página se mantém rápida:
 - Header sem `backdrop-filter` no celular.
 - O vídeo pausa fora da tela. Se o autoplay for bloqueado (iPhone em economia de energia), ele toca no primeiro toque.
 
+## Política de Privacidade
+
+Texto redigido com base na LGPD (Lei 13.709/2018) e no Marco Civil da Internet. **Não passou por advogado** — revisão jurídica pendente. Três pontos estão marcados com `TODO` no arquivo e precisam de dados do Wilgner:
+
+1. Endereço completo da sede (cláusula 1).
+2. Encarregado/DPO formalmente indicado, com e-mail dedicado (cláusula 15) — hoje o canal é o WhatsApp.
+3. Cláusula de foro (cláusula 17), a definir com apoio jurídico.
+
+Se entrar formulário, analytics ou pixel no site, a cláusula 6 (hoje declara que não há cookies) precisa ser reescrita e passa a ser exigido aviso de consentimento.
+
 ## Pendências
 
 - Domínio: preencher `og:url`, `og:image` e `canonical` (TODO no `<head>`).
@@ -95,3 +111,4 @@ Como a página se mantém rápida:
 - Revisar a comparação "API oficial × robô não oficial" e o passo a passo de implantação em `/api-whatsapp` (texto escrito por mim).
 - **Heavex Security**: faltam as soluções e o "resultado entregue". Hoje a unidade aparece só com nome e subtítulo, sem abrir (ver TODO no `index.html`).
 - Enviar as fotos com clientes.
+- Revisão jurídica da Política de Privacidade e preenchimento dos 3 `TODO` (endereço, DPO, foro).

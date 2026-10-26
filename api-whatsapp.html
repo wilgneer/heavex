@@ -13,7 +13,13 @@
 <meta property="og:site_name" content="Heavex">
 <meta property="og:title" content="API oficial do WhatsApp — Heavex Connect">
 <meta property="og:description" content="Notificações, alertas, confirmações e mensagens transacionais saindo do seu sistema direto para o WhatsApp do cliente, pela API oficial.">
-<!-- TODO: og:url, og:image e <link rel="canonical"> com URL absoluta quando o domínio estiver definido -->
+<link rel="canonical" href="https://heavex.com.br/api-whatsapp">
+<meta property="og:url" content="https://heavex.com.br/api-whatsapp">
+<meta property="og:image" content="https://heavex.com.br/assets/images/og-heavex.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Heavex — o futuro que melhora processos">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/images/favicon.svg?v=1" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=1">
 <script>document.documentElement.classList.add('js')</script>
@@ -201,7 +207,9 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .foot-wa{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600;color:#fff}
 .foot-wa svg{width:20px;height:20px;color:var(--green)}
 @media (hover:hover){.foot-links a:hover{color:#fff}.foot-wa:hover{color:var(--green)}}
-.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin-top:32px;padding-top:22px;border-top:1px solid var(--line);font:500 .75rem/1.6 var(--mono);letter-spacing:.06em;color:var(--dim)}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;align-items:center;margin-top:32px;padding-top:22px;border-top:1px solid var(--line);font:500 .75rem/1.6 var(--mono);letter-spacing:.06em;color:var(--dim)}
+.foot-bottom a{display:inline-flex;align-items:center;min-height:44px;color:#c3cbc6;text-decoration:none;border-bottom:1px solid rgba(53,229,95,.45);transition:color .2s,border-color .2s}
+@media (hover:hover){.foot-bottom a:hover{color:var(--green);border-color:var(--green)}}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -212,7 +220,7 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   .js .phone.is-live .msg{animation:none!important}
 }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Heavex Connect — API oficial do WhatsApp","serviceType":"Integração de mensagens pela API oficial do WhatsApp","provider":{"@type":"Organization","name":"Heavex","taxID":"69.138.557/0001-90"},"areaServed":"BR","description":"Notificações, alertas, confirmações e mensagens transacionais enviadas pelo sistema da empresa para o WhatsApp do cliente."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Heavex Connect — API oficial do WhatsApp","serviceType":"Integração de mensagens pela API oficial do WhatsApp","provider":{"@type":"Organization","name":"Heavex","legalName":"HEAVEX SOLUTIONS TECH LTDA","taxID":"69.138.557/0001-90"},"areaServed":"BR","description":"Notificações, alertas, confirmações e mensagens transacionais enviadas pelo sistema da empresa para o WhatsApp do cliente."}</script>
 <script src="assets/js/main.js?v=2" defer></script>
 </head>
 <body>
@@ -409,7 +417,8 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
     </div>
     <div class="foot-bottom">
       <p>© 2026 Heavex. Todos os direitos reservados.</p>
-      <p>CNPJ 69.138.557/0001-90</p>
+      <p><a href="/politica-de-privacidade">Política de Privacidade</a></p>
+      <p>CNPJ 69.138.557/0001-90 | RAZÃO SOCIAL: HEAVEX SOLUTIONS TECH LTDA</p>
     </div>
   </div>
 </footer>
