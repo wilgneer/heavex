@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Política de Privacidade — Heavex</title>
+<meta name="description" content="Política de Privacidade da Heavex: como tratamos dados pessoais, bases legais, direitos do titular e canais de atendimento, nos termos da Lei nº 13.709/2018 (LGPD).">
+<meta name="theme-color" content="#030504">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Heavex">
+<meta property="og:title" content="Política de Privacidade — Heavex">
+<meta property="og:description" content="Como a Heavex trata dados pessoais, nos termos da Lei nº 13.709/2018 (LGPD).">
+<!-- TODO: og:url, og:image e <link rel="canonical"> com URL absoluta quando o domínio estiver definido -->
+<link rel="icon" href="assets/images/favicon.svg?v=1" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=1">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --bg:#030504;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.14);
+  --text:#f4f7f5;
+  --muted:#a3aba6;
+  --dim:#7f8782;
+  --green:#35e55f;
+  --green-deep:#0e8129;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI Variable Display","Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,"Roboto Mono",Consolas,monospace;
+  --nav-h:64px;
+  --gutter:16px;
+}
+@media (min-width:768px){:root{--gutter:32px}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--bg);color-scheme:dark;scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;overflow-x:clip}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:8px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:fixed;left:16px;top:16px;z-index:100;padding:10px 16px;border-radius:999px;background:var(--green-deep);color:#fff;font-weight:600;text-decoration:none;transform:translateY(-200%);opacity:0}
+.skip:focus{transform:none;opacity:1}
+.wrap{width:min(100% - var(--gutter) * 2,1200px);margin-inline:auto}
+
+/* ── Navegação ───────────────────────────────────────── */
+.nav{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top)}
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(3,5,4,.94);border-bottom:1px solid var(--line);opacity:0;transition:opacity .4s var(--ease)}
+.nav.is-solid::before,.nav.is-open::before{opacity:1}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--nav-h)}
+.brand{display:flex;align-items:center;min-height:44px;text-decoration:none}
+.brand img{height:32px;width:auto}
+.nav-toggle{position:relative;width:44px;height:44px;margin-right:-10px;display:grid;place-items:center}
+.nav-toggle i{position:absolute;left:12px;right:12px;height:1.5px;background:#fff;border-radius:2px;transition:transform .35s var(--ease)}
+.nav-toggle i:first-child{transform:translateY(-4px)}
+.nav-toggle i:last-child{transform:translateY(4px)}
+.nav.is-open .nav-toggle i:first-child{transform:rotate(45deg)}
+.nav.is-open .nav-toggle i:last-child{transform:rotate(-45deg)}
+.nav-menu{position:absolute;top:100%;left:0;right:0;display:none;max-height:calc(100svh - var(--nav-h));overflow-y:auto;padding:8px var(--gutter) calc(24px + env(safe-area-inset-bottom));background:#030504;border-bottom:1px solid var(--line)}
+.nav.is-open .nav-menu{display:block}
+.nav-links a{display:flex;align-items:center;justify-content:space-between;min-height:56px;border-bottom:1px solid var(--line);font-size:1.125rem;letter-spacing:-.01em;text-decoration:none}
+.nav-links a::after{content:"→";color:var(--green);font-family:var(--mono)}
+.nav-cta{margin-top:20px;width:100%;justify-content:center}
+@media (min-width:900px){
+  .nav::before{background:rgba(3,5,4,.72);-webkit-backdrop-filter:saturate(160%) blur(18px);backdrop-filter:saturate(160%) blur(18px)}
+  .nav-toggle{display:none}
+  .nav-menu{position:static;display:flex;align-items:center;gap:20px;max-height:none;overflow:visible;padding:0;background:none;border:0}
+  .nav-links{display:flex;gap:2px}
+  .nav-links a{min-height:40px;padding:0 12px;border:0;border-radius:999px;font-size:.8125rem;color:var(--muted);transition:color .2s,background-color .2s}
+  .nav-links a::after{content:none}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  .nav-cta{margin:0;width:auto;min-height:40px;padding:0 18px;font-size:.8125rem}
+}
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 26px;border-radius:999px;overflow:hidden;font-size:1rem;font-weight:600;white-space:nowrap;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-green{background:var(--green-deep);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 0 1px rgba(53,229,95,.6),0 12px 40px -12px rgba(53,229,95,.75)}
+@media (hover:hover){.btn-green:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 0 0 1px var(--green),0 18px 50px -12px rgba(53,229,95,.95)}}
+
+/* ── Cabeçalho do documento ──────────────────────────── */
+.doc-head{position:relative;isolation:isolate;padding:calc(var(--nav-h) + 56px) 0 8px}
+.doc-head::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 50% at 10% 0%,rgba(53,229,95,.12),transparent 60%)}
+.kicker{display:inline-flex;align-items:center;gap:12px;font:500 .75rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.kicker::before{content:"";width:28px;height:1px;background:currentColor;box-shadow:0 0 8px currentColor}
+.doc-title{margin-top:18px;font-size:clamp(2rem,7vw,3.5rem);font-weight:700;line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+.doc-meta{display:grid;gap:10px 28px;margin-top:28px;padding:18px 20px;border:1px solid var(--line-2);border-radius:16px;background:rgba(0,0,0,.4);font:500 .75rem/1.5 var(--mono);letter-spacing:.04em;color:var(--muted)}
+@media (min-width:768px){.doc-meta{grid-template-columns:repeat(3,auto);justify-content:start}}
+.doc-meta b{display:block;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:.14em;font-size:.6875rem}
+.doc-meta span{color:#dfe6e1}
+
+/* ── Corpo do documento ──────────────────────────────── */
+.doc{display:grid;gap:40px;padding:40px 0 72px}
+@media (min-width:1024px){.doc{grid-template-columns:260px 1fr;gap:64px;padding-top:48px}}
+.toc{align-self:start;border:1px solid var(--line-2);border-radius:16px;background:rgba(0,0,0,.35)}
+.toc-sum{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:0 18px;cursor:pointer;list-style:none;font:500 .6875rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.toc-sum::-webkit-details-marker{display:none}
+.toc-sum svg{width:20px;height:20px;color:var(--muted);transition:transform .3s var(--ease)}
+.toc[open] .toc-sum svg{transform:rotate(180deg)}
+.toc ol{counter-reset:toc;margin:0 18px 16px;border-left:1px solid var(--line-2)}
+.toc a{display:block;padding:8px 0 8px 16px;margin-left:-1px;border-left:1px solid transparent;font-size:.875rem;line-height:1.35;color:var(--muted);text-decoration:none;transition:color .2s,border-color .2s}
+.toc a::before{counter-increment:toc;content:counter(toc) ". ";font:500 .75rem var(--mono);color:var(--dim)}
+@media (hover:hover){.toc a:hover{color:#fff;border-left-color:var(--green)}}
+/* desktop: índice fixo na lateral, sempre aberto (o main.js abre o <details>) */
+@media (min-width:1024px){
+  .toc{position:sticky;top:calc(var(--nav-h) + 24px);max-height:calc(100svh - var(--nav-h) - 48px);overflow-y:auto;border:0;border-radius:0;background:none}
+  .toc .toc-sum{display:none}
+  .toc ol{margin:0}
+}
+.doc-body{max-width:72ch;counter-reset:sec}
+.doc-body h2{counter-increment:sec;margin:48px 0 0;padding-top:28px;border-top:1px solid var(--line);font-size:clamp(1.25rem,3.2vw,1.625rem);font-weight:600;letter-spacing:-.02em;line-height:1.25;text-wrap:balance}
+.doc-body h2::before{content:counter(sec) ". ";color:var(--green);font-family:var(--mono);font-size:.85em}
+.doc-body section:first-child h2{margin-top:0;padding-top:0;border-top:0}
+.doc-body h3{margin-top:26px;font-size:1.0625rem;font-weight:600;letter-spacing:-.01em;color:#eef3f0}
+.doc-body p{margin-top:14px;color:#c9d1cc;line-height:1.7;text-wrap:pretty}
+.doc-body a{color:var(--green);text-underline-offset:3px}
+.doc-body strong{color:#fff;font-weight:600}
+.doc-body .lista{margin-top:16px;display:grid;gap:10px}
+.doc-body .lista li{position:relative;padding-left:26px;color:#c9d1cc;line-height:1.6}
+.doc-body .lista li::before{content:"";position:absolute;left:4px;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(53,229,95,.5)}
+.doc-body .alpha{margin-top:16px;display:grid;gap:10px;counter-reset:alpha}
+.doc-body .alpha li{counter-increment:alpha;position:relative;padding-left:34px;color:#c9d1cc;line-height:1.6}
+.doc-body .alpha li::before{content:"(" counter(alpha,lower-alpha) ")";position:absolute;left:0;top:0;font:500 .8125rem/1.6 var(--mono);color:var(--green)}
+.nota{margin-top:20px;padding:16px 18px;border-left:2px solid var(--green);border-radius:0 12px 12px 0;background:linear-gradient(90deg,rgba(53,229,95,.08),transparent 70%);font-size:.9375rem;line-height:1.6;color:#dfe6e1}
+.bases{margin-top:18px;display:grid;gap:12px}
+@media (min-width:640px){.bases{grid-template-columns:repeat(2,1fr)}}
+.base{padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#070a08,#000)}
+.base h3{margin:0;font-size:.9375rem;font-weight:600;color:#fff}
+.base p{margin-top:8px;font-size:.875rem;line-height:1.5;color:var(--muted)}
+.base p b{display:block;margin-top:8px;font:500 .6875rem/1.4 var(--mono);letter-spacing:.08em;color:var(--green)}
+.contato{margin-top:24px;padding:22px 20px;border:1px solid var(--line-2);border-radius:18px;background:radial-gradient(85% 70% at 0% 0%,rgba(53,229,95,.1),transparent 60%),#050605}
+.contato dl{display:grid;gap:14px;margin:0}
+@media (min-width:640px){.contato dl{grid-template-columns:repeat(2,1fr)}}
+.contato dt{font:500 .6875rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.contato dd{margin:6px 0 0;font-size:.9375rem;color:#eef3f0}
+.contato a{color:var(--green);text-decoration:none}
+@media (hover:hover){.contato a:hover{text-decoration:underline}}
+
+/* ── Rodapé ──────────────────────────────────────────── */
+.foot{position:relative;padding:56px 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.foot::before{content:"";position:absolute;top:-1px;left:50%;width:min(560px,80%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--green),transparent);box-shadow:0 0 18px rgba(53,229,95,.8)}
+.foot-top{display:grid;gap:24px}
+@media (min-width:900px){.foot-top{grid-template-columns:auto 1fr auto;align-items:center}}
+.foot-links{display:flex;flex-wrap:wrap;gap:0 22px;font-size:.9375rem;color:var(--muted)}
+@media (min-width:900px){.foot-links{justify-content:center}}
+.foot-links a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;transition:color .2s}
+.foot-wa{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600;color:#fff;text-decoration:none}
+.foot-wa svg{width:20px;height:20px;color:var(--green)}
+@media (hover:hover){.foot-links a:hover{color:#fff}.foot-wa:hover{color:var(--green)}}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin-top:32px;padding-top:22px;border-top:1px solid var(--line);font:500 .75rem/1.6 var(--mono);letter-spacing:.06em;color:var(--dim)}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{
+  .nav,.skip,.toc,.foot-wa,.doc-head::before{display:none!important}
+  html,body{background:#fff;color:#111}
+  .doc-head{padding-top:0}
+  .doc{display:block;padding:0}
+  .doc-body{max-width:none}
+  .doc-body p,.doc-body .lista li,.doc-body .alpha li{color:#222}
+  .doc-body h2,.doc-body h3,.doc-body strong,.contato dd{color:#000}
+  .doc-meta,.contato,.base,.nota{border-color:#ccc;background:none;color:#222}
+  .doc-body a{color:#000}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Política de Privacidade — Heavex","inLanguage":"pt-BR","datePublished":"2026-10-26","dateModified":"2026-10-26","publisher":{"@type":"Organization","name":"Heavex","taxID":"69.138.557/0001-90"}}</script>
+<script src="assets/js/main.js?v=2" defer></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav" data-nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="Heavex — início">
+      <img src="assets/images/logo-nav.webp?v=1" width="146" height="72" alt="Heavex" decoding="async">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu" data-nav-toggle><i></i><i></i></button>
+    <div class="nav-menu" id="nav-menu">
+      <nav aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="/#quem-somos">Quem somos</a></li>
+          <li><a href="/#o-que-fazemos">O que fazemos</a></li>
+          <li><a href="/api-whatsapp">API do WhatsApp</a></li>
+          <li><a href="/">Voltar ao site</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-green nav-cta" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20privacidade%20e%20dados." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+        Fale conosco
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+  <div class="wrap">
+
+    <header class="doc-head">
+      <p class="kicker">Documento legal</p>
+      <h1 class="doc-title">Política de Privacidade</h1>
+      <div class="doc-meta">
+        <p><b>Vigência</b><span>26 de outubro de 2026</span></p>
+        <p><b>Última atualização</b><span>26 de outubro de 2026</span></p>
+        <p><b>Versão</b><span>1.0</span></p>
+      </div>
+    </header>
+
+    <div class="doc">
+      <details class="toc" data-toc>
+        <summary class="toc-sum">Índice<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5 12 15.5 18 9.5"/></svg></summary>
+        <ol>
+          <li><a href="#controlador">Identificação do controlador</a></li>
+          <li><a href="#definicoes">Definições</a></li>
+          <li><a href="#abrangencia">Abrangência</a></li>
+          <li><a href="#dados">Dados pessoais tratados</a></li>
+          <li><a href="#finalidades">Finalidades e bases legais</a></li>
+          <li><a href="#cookies">Cookies e rastreamento</a></li>
+          <li><a href="#compartilhamento">Compartilhamento</a></li>
+          <li><a href="#internacional">Transferência internacional</a></li>
+          <li><a href="#conservacao">Prazo de conservação</a></li>
+          <li><a href="#seguranca">Segurança da informação</a></li>
+          <li><a href="#incidentes">Incidentes de segurança</a></li>
+          <li><a href="#direitos">Direitos do titular</a></li>
+          <li><a href="#exercicio">Como exercer seus direitos</a></li>
+          <li><a href="#criancas">Crianças e adolescentes</a></li>
+          <li><a href="#encarregado">Encarregado (DPO)</a></li>
+          <li><a href="#alteracoes">Alterações desta política</a></li>
+          <li><a href="#legislacao">Legislação aplicável</a></li>
+        </ol>
+      </details>
+
+      <article class="doc-body">
+
+        <section id="controlador">
+          <h2>Identificação do controlador</h2>
+          <p>Esta Política de Privacidade descreve como a <strong>HEAVEX</strong>, pessoa jurídica de direito privado inscrita no CNPJ sob o nº <strong>69.138.557/0001-90</strong> (doravante “Heavex”, “nós” ou “Controladora”), realiza o tratamento de dados pessoais no âmbito de seu site institucional e das atividades a ele relacionadas.</p>
+          <p>O tratamento observa a Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais (“LGPD”), a Lei nº 12.965/2014 (Marco Civil da Internet) e demais normas aplicáveis.</p>
+          <!-- TODO (Wilgner): incluir aqui o endereço completo da sede (logradouro, nº, bairro, cidade/UF e CEP) -->
+          <div class="contato">
+            <dl>
+              <div>
+                <dt>Razão social</dt>
+                <dd>Heavex</dd>
+              </div>
+              <div>
+                <dt>CNPJ</dt>
+                <dd>69.138.557/0001-90</dd>
+              </div>
+              <div>
+                <dt>Canal de atendimento ao titular</dt>
+                <dd><a href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Tenho%20uma%20solicita%C3%A7%C3%A3o%20sobre%20meus%20dados%20pessoais." target="_blank" rel="noopener noreferrer">WhatsApp (31) 99989-5589</a></dd>
+              </div>
+              <div>
+                <dt>Atuação</dt>
+                <dd>Desenvolvimento de software e serviços de tecnologia</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section id="definicoes">
+          <h2>Definições</h2>
+          <p>Para os fins desta Política, aplicam-se as definições do art. 5º da LGPD, destacando-se:</p>
+          <ul class="alpha">
+            <li><strong>Dado pessoal:</strong> informação relacionada a pessoa natural identificada ou identificável.</li>
+            <li><strong>Dado pessoal sensível:</strong> dado sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural.</li>
+            <li><strong>Titular:</strong> pessoa natural a quem se referem os dados pessoais objeto de tratamento.</li>
+            <li><strong>Tratamento:</strong> toda operação realizada com dados pessoais, incluindo coleta, acesso, armazenamento, uso, compartilhamento e eliminação.</li>
+            <li><strong>Controlador:</strong> a quem competem as decisões referentes ao tratamento de dados pessoais.</li>
+            <li><strong>Operador:</strong> quem realiza o tratamento de dados pessoais em nome do controlador.</li>
+            <li><strong>Encarregado:</strong> pessoa indicada para atuar como canal de comunicação entre o controlador, os titulares e a Autoridade Nacional de Proteção de Dados (“ANPD”).</li>
+          </ul>
+        </section>
+
+        <section id="abrangencia">
+          <h2>Abrangência</h2>
+          <p>Esta Política aplica-se ao tratamento de dados pessoais de visitantes do site da Heavex, de interessados em seus serviços, de clientes e de seus representantes legais, prepostos e colaboradores, quando o tratamento for realizado pela Heavex na qualidade de <strong>controladora</strong>.</p>
+          <p>Quando a Heavex desenvolver, integrar, hospedar ou operar sistemas em nome de seus clientes, atuará, em regra, na qualidade de <strong>operadora</strong>, tratando dados pessoais conforme as instruções documentadas do cliente, que figura como controlador. Nessas hipóteses, a política de privacidade aplicável é a do respectivo controlador, observado o disposto no instrumento contratual firmado entre as partes.</p>
+        </section>
+
+        <section id="dados">
+          <h2>Dados pessoais tratados</h2>
+
+          <h3>4.1. Dados fornecidos pelo titular</h3>
+          <p>O site da Heavex não possui formulários de cadastro ou de captação de dados. O contato é realizado por canal externo de mensageria (WhatsApp), ocasião em que podem ser tratados os dados que o próprio titular fornecer, tais como:</p>
+          <ul class="lista">
+            <li>nome e sobrenome;</li>
+            <li>número de telefone e, se informado, endereço de e-mail;</li>
+            <li>nome da empresa, cargo e informações sobre a demanda apresentada;</li>
+            <li>conteúdo das mensagens trocadas e dos arquivos eventualmente enviados pelo titular.</li>
+          </ul>
+
+          <h3>4.2. Dados coletados automaticamente</h3>
+          <p>O acesso ao site gera registros técnicos mantidos pelo provedor de infraestrutura, em cumprimento ao art. 15 da Lei nº 12.965/2014, compreendendo endereço IP, data e hora do acesso, identificação do navegador e do sistema operacional, página acessada e dados de desempenho da requisição.</p>
+          <p>Tais registros são utilizados exclusivamente para operação, segurança e diagnóstico técnico, não sendo empregados para formação de perfil comportamental, publicidade direcionada ou enriquecimento de bases de dados.</p>
+
+          <h3>4.3. Dados tratados em nome de clientes</h3>
+          <p>Na execução de projetos contratados, a Heavex pode ter acesso a dados pessoais sob responsabilidade do cliente. Esse tratamento ocorre de forma limitada ao necessário para a prestação dos serviços, mediante instrução do controlador e sujeito a obrigações de confidencialidade e segurança, nos termos dos arts. 39 e 47 da LGPD.</p>
+
+          <div class="nota">A Heavex não coleta dados pessoais sensíveis por meio deste site, não realiza decisões automatizadas que afetem interesses do titular e não comercializa dados pessoais sob qualquer forma.</div>
+        </section>
+
+        <section id="finalidades">
+          <h2>Finalidades e bases legais</h2>
+          <p>O tratamento de dados pessoais é realizado para finalidades determinadas, explícitas e legítimas, sempre amparado em uma das hipóteses do art. 7º da LGPD, conforme o quadro abaixo:</p>
+          <div class="bases">
+            <div class="base">
+              <h3>Atendimento a contatos e solicitações</h3>
+              <p>Responder mensagens, esclarecer dúvidas, elaborar propostas comerciais e conduzir tratativas preliminares.<b>Art. 7º, V — procedimentos preliminares relacionados a contrato</b></p>
+            </div>
+            <div class="base">
+              <h3>Execução de contratos</h3>
+              <p>Gestão de projetos contratados, comunicação com representantes do cliente, faturamento e suporte.<b>Art. 7º, V — execução de contrato</b></p>
+            </div>
+            <div class="base">
+              <h3>Segurança e integridade do site</h3>
+              <p>Manutenção de registros de acesso, prevenção a fraudes, abusos e incidentes de segurança.<b>Art. 7º, IX — legítimo interesse · Art. 7º, II — obrigação legal</b></p>
+            </div>
+            <div class="base">
+              <h3>Cumprimento de obrigações legais</h3>
+              <p>Atendimento a obrigações fiscais, contábeis, regulatórias e a requisições de autoridades competentes.<b>Art. 7º, II — cumprimento de obrigação legal ou regulatória</b></p>
+            </div>
+            <div class="base">
+              <h3>Exercício regular de direitos</h3>
+              <p>Constituição, defesa ou exercício de direitos em processo judicial, administrativo ou arbitral.<b>Art. 7º, VI — exercício regular de direitos</b></p>
+            </div>
+            <div class="base">
+              <h3>Comunicações institucionais</h3>
+              <p>Envio de informações sobre serviços, quando houver manifestação do titular nesse sentido.<b>Art. 7º, I — consentimento, revogável a qualquer tempo</b></p>
+            </div>
+          </div>
+          <p>Os dados pessoais não serão utilizados para finalidades incompatíveis com aquelas informadas ao titular no momento da coleta, nos termos do art. 6º, I e II, da LGPD.</p>
+        </section>
+
+        <section id="cookies">
+          <h2>Cookies e rastreamento</h2>
+          <p>Este site <strong>não utiliza cookies</strong>, pixels de rastreamento, ferramentas de analytics ou qualquer tecnologia de monitoramento de comportamento do visitante. Não há scripts de terceiros carregados em suas páginas.</p>
+          <p>Caso tais tecnologias venham a ser adotadas, esta Política será previamente atualizada e, quando exigido pela legislação, será apresentado mecanismo de gestão de preferências para coleta de consentimento.</p>
+        </section>
+
+        <section id="compartilhamento">
+          <h2>Compartilhamento</h2>
+          <p>A Heavex não vende, aluga ou cede dados pessoais a terceiros. O compartilhamento ocorre apenas nas seguintes hipóteses:</p>
+          <ul class="alpha">
+            <li><strong>Operadores e prestadores de serviço:</strong> provedores de hospedagem, infraestrutura em nuvem e plataformas de mensageria, contratados para viabilizar a operação do site e a comunicação com o titular, submetidos a obrigações contratuais de confidencialidade e segurança.</li>
+            <li><strong>Plataforma de mensageria:</strong> ao optar por contatar a Heavex via WhatsApp, o titular submete-se também aos termos e à política de privacidade da plataforma mantida pela Meta Platforms, Inc., em relação à qual a Heavex não exerce controle.</li>
+            <li><strong>Autoridades públicas:</strong> mediante requisição legal, ordem judicial ou para cumprimento de obrigação regulatória.</li>
+            <li><strong>Operações societárias:</strong> em caso de reorganização, fusão, cisão ou aquisição, hipótese em que os dados serão transferidos observando-se as finalidades originais e o dever de informação ao titular.</li>
+          </ul>
+        </section>
+
+        <section id="internacional">
+          <h2>Transferência internacional</h2>
+          <p>Os serviços de hospedagem e de mensageria utilizados podem armazenar ou processar dados em servidores localizados fora do território nacional. Nessas situações, a transferência internacional observa o disposto nos arts. 33 a 36 da LGPD, admitindo-se, conforme o caso, a transferência para países com grau de proteção adequado ou mediante garantias contratuais de observância dos princípios e dos direitos previstos na legislação brasileira.</p>
+        </section>
+
+        <section id="conservacao">
+          <h2>Prazo de conservação</h2>
+          <p>Os dados pessoais são conservados pelo tempo necessário ao cumprimento das finalidades que motivaram sua coleta, observados os seguintes parâmetros:</p>
+          <ul class="lista">
+            <li>registros de acesso ao site: pelo prazo mínimo de 6 (seis) meses, nos termos do art. 15 da Lei nº 12.965/2014;</li>
+            <li>dados de contato e tratativas comerciais não convertidas: pelo prazo necessário à condução da negociação e, após, pelo prazo de prescrição aplicável;</li>
+            <li>dados relativos a contratos celebrados: durante a vigência contratual e pelos prazos prescricionais e de guarda fiscal e contábil subsequentes.</li>
+          </ul>
+          <p>Encerrado o prazo de conservação e inexistindo hipótese legal que justifique a manutenção, os dados serão eliminados ou anonimizados, nos termos dos arts. 15 e 16 da LGPD.</p>
+        </section>
+
+        <section id="seguranca">
+          <h2>Segurança da informação</h2>
+          <p>A Heavex adota medidas técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou difusão, em atenção ao art. 46 da LGPD, entre as quais:</p>
+          <ul class="lista">
+            <li>transmissão de dados em conexão cifrada (HTTPS/TLS);</li>
+            <li>controle de acesso baseado no princípio do menor privilégio;</li>
+            <li>segregação de ambientes de desenvolvimento, homologação e produção;</li>
+            <li>registro de operações relevantes e monitoramento de integridade;</li>
+            <li>compromisso de confidencialidade de colaboradores e prestadores.</li>
+          </ul>
+          <p>Nenhum sistema é integralmente imune a falhas. O titular contribui para a segurança ao não compartilhar informações sensíveis por canais não solicitados e ao verificar a autenticidade dos contatos recebidos.</p>
+        </section>
+
+        <section id="incidentes">
+          <h2>Incidentes de segurança</h2>
+          <p>Na ocorrência de incidente de segurança que possa acarretar risco ou dano relevante aos titulares, a Heavex comunicará a ANPD e os titulares afetados em prazo razoável, nos termos do art. 48 da LGPD e da regulamentação expedida pela Autoridade, informando a natureza dos dados envolvidos, os riscos identificados e as medidas adotadas.</p>
+        </section>
+
+        <section id="direitos">
+          <h2>Direitos do titular</h2>
+          <p>Nos termos do art. 18 da LGPD, o titular pode requerer à Heavex, a qualquer tempo e mediante requisição:</p>
+          <ul class="alpha">
+            <li>confirmação da existência de tratamento;</li>
+            <li>acesso aos dados;</li>
+            <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+            <li>anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade com a LGPD;</li>
+            <li>portabilidade a outro fornecedor de serviço ou produto, observados os segredos comercial e industrial;</li>
+            <li>eliminação dos dados tratados com consentimento, ressalvadas as hipóteses do art. 16;</li>
+            <li>informação sobre as entidades públicas e privadas com as quais houve uso compartilhado;</li>
+            <li>informação sobre a possibilidade de não fornecer consentimento e sobre as consequências da negativa;</li>
+            <li>revogação do consentimento, nos termos do art. 8º, § 5º;</li>
+            <li>oposição a tratamento realizado com fundamento em hipótese de dispensa de consentimento, em caso de descumprimento da lei.</li>
+          </ul>
+          <p>O titular pode, ainda, peticionar em relação aos seus dados perante a ANPD, nos termos do art. 18, § 1º, da LGPD.</p>
+        </section>
+
+        <section id="exercicio">
+          <h2>Como exercer seus direitos</h2>
+          <p>As requisições devem ser encaminhadas pelo canal de atendimento indicado na cláusula 1, com identificação do titular e descrição do pedido. A Heavex poderá solicitar informações adicionais estritamente necessárias à comprovação da identidade do requerente, como medida de segurança contra acessos indevidos.</p>
+          <p>As solicitações serão respondidas em formato simplificado e de forma imediata ou, quando demandarem apuração, mediante declaração clara e completa no prazo de até 15 (quinze) dias contados da requisição, conforme o art. 19, I e II, da LGPD.</p>
+          <p>Caso a Heavex atue como operadora em nome de cliente controlador, a requisição será encaminhada ao respectivo controlador, a quem compete a decisão sobre o atendimento, sendo o titular informado dessa circunstância.</p>
+        </section>
+
+        <section id="criancas">
+          <h2>Crianças e adolescentes</h2>
+          <p>Os serviços e o site da Heavex destinam-se a pessoas maiores de 18 (dezoito) anos e a profissionais que atuam em nome de pessoas jurídicas. Não há coleta intencional de dados de crianças e adolescentes. Identificado tratamento dessa natureza sem o amparo do art. 14 da LGPD, os dados serão eliminados.</p>
+        </section>
+
+        <section id="encarregado">
+          <h2>Encarregado pelo tratamento de dados (DPO)</h2>
+          <p>A Heavex mantém canal de comunicação para questões relativas à proteção de dados pessoais, por meio do qual são recebidas as requisições de titulares e as comunicações da ANPD.</p>
+          <!-- TODO (Wilgner): indicar formalmente o Encarregado (nome e e-mail dedicado, ex.: dpo@seudominio.com.br) e substituir o canal abaixo. Art. 41 da LGPD. -->
+          <div class="contato">
+            <dl>
+              <div>
+                <dt>Canal do encarregado</dt>
+                <dd><a href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Tenho%20uma%20solicita%C3%A7%C3%A3o%20sobre%20prote%C3%A7%C3%A3o%20de%20dados%20(LGPD)." target="_blank" rel="noopener noreferrer">WhatsApp (31) 99989-5589</a></dd>
+              </div>
+              <div>
+                <dt>Prazo de resposta</dt>
+                <dd>Até 15 dias, nos termos do art. 19 da LGPD</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section id="alteracoes">
+          <h2>Alterações desta política</h2>
+          <p>Esta Política poderá ser alterada a qualquer tempo, em razão de modificações na legislação, de orientações da ANPD ou de mudanças nas atividades da Heavex. A versão vigente é sempre a publicada nesta página, com indicação da data de atualização e do número de versão no cabeçalho do documento.</p>
+          <p>Alterações substanciais que impliquem novas finalidades ou novas hipóteses de compartilhamento serão comunicadas pelos canais disponíveis, sem prejuízo da coleta de consentimento quando exigido.</p>
+        </section>
+
+        <section id="legislacao">
+          <h2>Legislação aplicável</h2>
+          <p>Esta Política é regida e interpretada de acordo com a legislação da República Federativa do Brasil, em especial a Lei nº 13.709/2018 e a Lei nº 12.965/2014.</p>
+          <!-- TODO (Wilgner): definir com apoio jurídico a cláusula de foro (comarca da sede) ou mantê-la ausente, preservando o foro do domicílio do consumidor quando aplicável. -->
+          <p>Dúvidas sobre o conteúdo deste documento podem ser encaminhadas pelo canal de atendimento indicado na cláusula 1.</p>
+        </section>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="/" aria-label="Heavex — voltar ao início">
+        <img src="assets/images/logo-nav.webp?v=1" width="146" height="72" alt="Heavex" loading="lazy" decoding="async">
+      </a>
+      <nav aria-label="Rodapé">
+        <ul class="foot-links">
+          <li><a href="/#quem-somos">Quem somos</a></li>
+          <li><a href="/#o-que-fazemos">O que fazemos</a></li>
+          <li><a href="/#resultados">Resultados</a></li>
+          <li><a href="/api-whatsapp">API do WhatsApp</a></li>
+          <li><a href="/politica-de-privacidade" aria-current="page">Política de Privacidade</a></li>
+        </ul>
+      </nav>
+      <a class="foot-wa" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Heavex." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+        (31) 99989-5589<span class="sr-only"> no WhatsApp (abre em nova aba)</span>
+      </a>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Heavex. Todos os direitos reservados.</p>
+      <p>CNPJ 69.138.557/0001-90</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
