@@ -153,6 +153,17 @@
     items.forEach((it) => io.observe(it));
   });
 
+  /* ── Índice de documento: aberto no desktop, recolhido no celular ── */
+  const toc = d.querySelector('[data-toc]');
+  if (toc) {
+    const wide = matchMedia('(min-width: 1024px)');
+    const sync = () => { toc.open = wide.matches; };
+    sync();
+    wide.addEventListener('change', sync);
+    // no celular, escolher uma seção fecha o índice
+    toc.addEventListener('click', (e) => { if (e.target.closest('a') && !wide.matches) toc.open = false; });
+  }
+
   /* ── Como funciona: mapa com cada etapa sendo concluída ──────────── */
   const flow = d.querySelector('[data-flow]');
   if (flow) {
