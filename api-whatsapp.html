@@ -197,17 +197,27 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 @media (max-width:519.98px){.final .btn{width:100%;justify-content:center}}
 
 /* ── Rodapé ──────────────────────────────────────────── */
-.foot{position:relative;padding:56px 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.foot{position:relative;padding:clamp(56px,7vw,88px) 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(53,229,95,.04),transparent 45%)}
 .foot::before{content:"";position:absolute;top:-1px;left:50%;width:min(560px,80%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--green),transparent);box-shadow:0 0 18px rgba(53,229,95,.8)}
-.foot-top{display:grid;gap:24px}
-@media (min-width:900px){.foot-top{grid-template-columns:auto 1fr auto;align-items:center}}
-.foot-links{display:flex;flex-wrap:wrap;gap:0 22px;font-size:.9375rem;color:var(--muted)}
-@media (min-width:900px){.foot-links{justify-content:center}}
-.foot-links a{display:inline-flex;align-items:center;min-height:44px;transition:color .2s}
-.foot-wa{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600;color:#fff}
-.foot-wa svg{width:20px;height:20px;color:var(--green)}
-@media (hover:hover){.foot-links a:hover{color:#fff}.foot-wa:hover{color:var(--green)}}
-.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;align-items:center;margin-top:32px;padding-top:22px;border-top:1px solid var(--line);font:500 .75rem/1.6 var(--mono);letter-spacing:.06em;color:var(--dim)}
+.foot-grid{display:grid;gap:40px}
+@media (min-width:720px){.foot-grid{grid-template-columns:repeat(2,1fr);gap:40px 32px}}
+@media (min-width:1024px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:48px 32px}}
+.foot-sobre .brand{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.foot-sobre .brand img{height:34px;width:auto}
+.foot-sobre p{margin-top:16px;max-width:34ch;font-size:.9375rem;line-height:1.6;color:var(--muted);text-wrap:pretty}
+.foot-legal{margin-top:20px;font:500 .6875rem/1.7 var(--mono);letter-spacing:.04em;color:var(--dim)}
+.foot-legal b{display:block;font-weight:500;color:#c3cbc6}
+.foot-col h3{font:500 .6875rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.foot-col ul{margin-top:18px;display:grid;gap:2px}
+.foot-col a{display:inline-flex;align-items:center;min-height:38px;font-size:.9375rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.foot-contato address{font-style:normal}
+.foot-contato ul{margin-top:18px;display:grid;gap:4px}
+.foot-contato a,.foot-contato .item{display:flex;align-items:flex-start;gap:12px;min-height:44px;padding:6px 0;font-size:.9375rem;line-height:1.45;color:#dfe6e1;text-decoration:none;transition:color .2s}
+.foot-contato svg{width:19px;height:19px;flex:none;margin-top:2px;color:var(--green)}
+.foot-contato small{display:block;font:500 .625rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+@media (hover:hover){.foot-col a:hover{color:#fff}.foot-contato a:hover{color:var(--green)}.foot-contato a:hover svg{color:#eafff0}}
+.foot-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px;margin-top:clamp(40px,5vw,56px);padding-top:24px;border-top:1px solid var(--line);font:500 .75rem/1.7 var(--mono);letter-spacing:.06em;color:var(--dim)}
+.foot-bottom nav{display:flex;flex-wrap:wrap;gap:4px 20px}
 .foot-bottom a{display:inline-flex;align-items:center;min-height:44px;color:#c3cbc6;text-decoration:none;border-bottom:1px solid rgba(53,229,95,.45);transition:color .2s,border-color .2s}
 @media (hover:hover){.foot-bottom a:hover{color:var(--green);border-color:var(--green)}}
 
@@ -397,28 +407,64 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 
 <footer class="foot">
   <div class="wrap">
-    <div class="foot-top">
-      <a class="brand" href="/" aria-label="Heavex — voltar ao início">
-        <img src="assets/images/logo-nav.webp?v=1" width="146" height="72" alt="Heavex" loading="lazy" decoding="async">
-      </a>
-      <nav aria-label="Rodapé">
-        <ul class="foot-links">
+    <div class="foot-grid">
+
+      <div class="foot-sobre">
+        <a class="brand" href="/" aria-label="Heavex — início">
+          <img src="assets/images/logo-nav.webp?v=1" width="146" height="72" alt="Heavex" loading="lazy" decoding="async">
+        </a>
+        <p>Tecnologia que organiza processos: estratégia visual, mobilidade, sistemas, treinamento e segurança.</p>
+        <p class="foot-legal">
+          <b>HEAVEX SOLUTIONS TECH LTDA</b>
+          CNPJ 69.138.557/0001-90
+        </p>
+      </div>
+
+      <nav class="foot-col" aria-labelledby="foot-sol">
+        <h3 id="foot-sol">Soluções</h3>
+        <ul>
+          <li><a href="/#o-que-fazemos">Experience</a></li>
+          <li><a href="/#o-que-fazemos">Mobility Intelligence</a></li>
+          <li><a href="/#o-que-fazemos">Business Systems</a></li>
+          <li><a href="/#o-que-fazemos">Academy</a></li>
+          <li><a href="/#o-que-fazemos">Security</a></li>
+          <li><a href="/api-whatsapp">API do WhatsApp</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-labelledby="foot-emp">
+        <h3 id="foot-emp">Empresa</h3>
+        <ul>
           <li><a href="/#quem-somos">Quem somos</a></li>
-          <li><a href="/#o-que-fazemos">O que fazemos</a></li>
+          <li><a href="/#metodo">Nosso método</a></li>
           <li><a href="/#como-funciona">Como funciona</a></li>
           <li><a href="/#resultados">Resultados</a></li>
           <li><a href="/#clientes">Clientes</a></li>
+          <li><a href="/politica-de-privacidade">Política de Privacidade</a></li>
         </ul>
       </nav>
-      <a class="foot-wa" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Heavex." target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
-        (31) 99989-5589<span class="sr-only"> no WhatsApp (abre em nova aba)</span>
-      </a>
+
+      <div class="foot-col foot-contato">
+        <h3 id="foot-contato">Contato</h3>
+        <address>
+          <ul aria-labelledby="foot-contato">
+            <li><a href="mailto:contato@heavex.com.br"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg><span><small>E-mail</small>contato@heavex.com.br</span></a></li>
+            <li><a href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Heavex." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span><small>WhatsApp</small>(31) 99989-5589<span class="sr-only"> (abre em nova aba)</span></span></a></li>
+            <li><a href="tel:+5531936180768"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z"/></svg><span><small>Telefone</small>(31) 93618-0768</span></a></li>
+            <!-- TODO (Wilgner): endereço completo da sede — a Meta exige endereço visível no site para verificar a empresa.
+                 Trocar o item abaixo por: <li><span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span><small>Endereço</small>Rua Exemplo, 123 — Bairro<br>Cidade/MG — CEP 00000-000</span></span></li> -->
+          </ul>
+        </address>
+      </div>
+
     </div>
+
     <div class="foot-bottom">
-      <p>© 2026 Heavex. Todos os direitos reservados.</p>
-      <p><a href="/politica-de-privacidade">Política de Privacidade</a></p>
-      <p>CNPJ 69.138.557/0001-90 | RAZÃO SOCIAL: HEAVEX SOLUTIONS TECH LTDA</p>
+      <p>© 2026 HEAVEX SOLUTIONS TECH LTDA · CNPJ 69.138.557/0001-90</p>
+      <nav aria-label="Links legais">
+        <a href="/politica-de-privacidade">Política de Privacidade</a>
+      </nav>
+      <!-- TODO (Wilgner): cidade/UF da sede aqui, ex.: <p>Belo Horizonte · MG · Brasil</p> -->
     </div>
   </div>
 </footer>
