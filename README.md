@@ -34,6 +34,16 @@ As duas páginas compartilham `assets/` e `assets/js/main.js`, mas cada uma tem 
 
 O caminho sem `.html` funciona por `cleanUrls` na Vercel; o `scripts/serve.js` faz o mesmo no local.
 
+## Rodapé
+
+Rodapé institucional de 4 colunas, igual nas três páginas (marca + dados legais · Soluções · Empresa · Contato), com faixa inferior de copyright, CNPJ e link da política.
+
+Dados visíveis: razão social **HEAVEX SOLUTIONS TECH LTDA**, CNPJ 69.138.557/0001-90, `contato@heavex.com.br`, WhatsApp (31) 99989-5589 e telefone (31) 93618-0768.
+
+**Falta o endereço da sede** — é o único item que a Meta checa no site e ainda não está lá. O lugar já está marcado com `TODO` dentro da coluna Contato, com o HTML pronto para colar.
+
+Mudou o rodapé? Replique nos três arquivos, ou rode de novo o script `rodape.mjs` usado para gerá-lo.
+
 ## Estrutura
 
 | Caminho | O que é |
