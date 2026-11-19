@@ -68,12 +68,11 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* ── topo ────────────────────────────────────────────── */
 .marca{display:flex;flex-direction:column;align-items:center;text-align:center}
 .selo{
-  display:grid;place-items:center;width:96px;height:96px;border-radius:28px;background:#fff;
-  border:1px solid var(--line);box-shadow:0 18px 40px -22px rgba(14,129,41,.55),0 2px 6px rgba(10,10,10,.04);
+  display:grid;place-items:center;width:min(252px,74vw);padding:24px 28px;border-radius:28px;background:#0a0a0a;
+  box-shadow:0 24px 48px -24px rgba(14,129,41,.62),0 2px 10px rgba(10,10,10,.1);
 }
-.selo svg{width:58px;height:58px}
-.nome{margin-top:20px;font-size:clamp(1.75rem,6.4vw,2.25rem);font-weight:700;letter-spacing:-.035em;line-height:1}
-.arroba{margin-top:10px;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;font:500 .6875rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.selo img{width:min(180px,52vw);height:auto}
+.arroba{margin-top:22px;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;font:500 .6875rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
 .arroba i{width:6px;height:6px;border-radius:50%;background:var(--green-vivid);box-shadow:0 0 0 3px rgba(53,229,95,.22)}
 .frase{margin-top:16px;max-width:30ch;font-size:1.0625rem;line-height:1.5;color:var(--muted);text-wrap:balance}
 
@@ -129,15 +128,10 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 <main class="wrap">
 
   <header class="marca">
-    <div class="selo" aria-hidden="true">
-      <svg viewBox="0 0 64 64">
-        <path d="M32 4.5 55.8 18.25v27.5L32 59.5 8.2 45.75v-27.5Z" fill="#17a53c" stroke="#17a53c" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M32 15 46.7 23.5v17L32 49 17.3 40.5v-17Z" fill="#0a0a0a"/>
-        <path d="M17.3 23.5 32 32l14.7-8.5M32 32v17" fill="none" stroke="#35e55f" stroke-width="1.8"/>
-        <path d="M32 15V2M17.3 40.5 6 47M46.7 40.5 58 47" stroke="#fff" stroke-width="2.4"/>
-      </svg>
+    <div class="selo">
+      <img src="assets/images/logo-links.webp?v=1" width="360" height="178" alt="Heavex" fetchpriority="high" decoding="async">
     </div>
-    <h1 class="nome">Heavex</h1>
+    <h1 class="sr-only">Heavex</h1>
     <p class="arroba"><i></i>heavex.com.br</p>
     <p class="frase">O futuro que melhora processos. Tecnologia, sistemas e automação para o seu negócio.</p>
   </header>
