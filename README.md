@@ -25,6 +25,7 @@ Todos os CTAs abrem o WhatsApp **(31) 99989-5589** (`wa.me/5531999895589`), cada
 | `/` | `index.html` | Landing page + site institucional |
 | `/api-whatsapp` | `api-whatsapp.html` | Página do **Heavex Connect** — API oficial do WhatsApp |
 | `/politica-de-privacidade` | `politica-de-privacidade.html` | Política de Privacidade (LGPD) |
+| `/links` | `links.html` | Hub de links (tema claro) para bio de redes sociais |
 
 O link da política fica na faixa de baixo do rodapé, entre o copyright e o CNPJ, nas três páginas — não na lista de seções, onde ficava perdido como nono item.
 
@@ -34,13 +35,23 @@ As duas páginas compartilham `assets/` e `assets/js/main.js`, mas cada uma tem 
 
 O caminho sem `.html` funciona por `cleanUrls` na Vercel; o `scripts/serve.js` faz o mesmo no local.
 
+## Página de links (`/links`)
+
+Hub de links no estilo Linktree, para colocar na bio do Instagram e afins. **Tema claro** — branco com pontinhos e o verde da marca — de propósito diferente do resto do site, que é escuro.
+
+Links: WhatsApp (destaque), site, API do WhatsApp, portfólio (`/#resultados`) e e-mail. Tem botão de copiar o próprio endereço.
+
+Não está linkada no menu nem no rodapé do site: é página de divulgação, acessada pelo endereço direto `heavex.com.br/links`.
+
+Cores aqui seguem regra própria de contraste: o verde vivo `#35E55F` só aparece em enfeite; texto e botões usam `#0E8129` ou mais escuro, porque branco sobre `#35E55F` dá 1,7:1 e sobre `#12A235` dá 3,4:1 — ambos reprovam no WCAG AA.
+
 ## Rodapé
 
 Rodapé institucional de 4 colunas, igual nas três páginas (marca + dados legais · Soluções · Empresa · Contato), com faixa inferior de copyright, CNPJ e link da política.
 
 Dados visíveis: razão social **HEAVEX SOLUTIONS TECH LTDA**, CNPJ 69.138.557/0001-90, `contato@heavex.com.br`, WhatsApp (31) 99989-5589 e telefone (31) 93618-0768.
 
-**Falta o endereço da sede** — é o único item que a Meta checa no site e ainda não está lá. O lugar já está marcado com `TODO` dentro da coluna Contato, com o HTML pronto para colar.
+Endereço: **Rua Mariana, 205 — Belo Horizonte/MG**, visível no rodapé, na cláusula 1 da política e no `PostalAddress` do JSON-LD. Falta confirmar **bairro e CEP** para bater exatamente com o cadastro do CNPJ (`TODO` no arquivo).
 
 Mudou o rodapé? Replique nos três arquivos, ou rode de novo o script `rodape.mjs` usado para gerá-lo.
 
@@ -91,6 +102,8 @@ Depois, suba o `?v=` nas referências (os assets usam cache de 1 ano).
 | `/api-whatsapp` desktop | 100 | 100 | 100 | 100 | 0,3 s |
 | `/politica-de-privacidade` mobile | 100 | 100 | 100 | 100 | 0,9 s |
 | `/politica-de-privacidade` desktop | 100 | 100 | 100 | 100 | 0,3 s |
+| `/links` mobile | 100 | 100 | 100 | 100 | 0,9 s |
+| `/links` desktop | 100 | 100 | 100 | 100 | 0,3 s |
 
 Fluidez no celular (390 px, DPR 3, CPU 4× mais lenta, rolagem da página inteira): ~58 fps de média e p95 de 16,8 ms por quadro. É o mesmo resultado da página sem animação nenhuma.
 
@@ -121,4 +134,4 @@ Se entrar formulário, analytics ou pixel no site, a cláusula 6 (hoje declara q
 - Revisar a comparação "API oficial × robô não oficial" e o passo a passo de implantação em `/api-whatsapp` (texto escrito por mim).
 - **Heavex Security**: faltam as soluções e o "resultado entregue". Hoje a unidade aparece só com nome e subtítulo, sem abrir (ver TODO no `index.html`).
 - Enviar as fotos com clientes.
-- Revisão jurídica da Política de Privacidade e preenchimento dos 3 `TODO` (endereço, DPO, foro).
+- Revisão jurídica da Política de Privacidade e preenchimento dos `TODO` restantes (DPO, foro, bairro/CEP do endereço).
