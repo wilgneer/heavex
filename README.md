@@ -25,6 +25,7 @@ Todos os CTAs abrem o WhatsApp **(31) 99989-5589** (`wa.me/5531999895589`), cada
 | `/` | `index.html` | Landing page + site institucional |
 | `/api-whatsapp` | `api-whatsapp.html` | Página do **Heavex Connect** — API oficial do WhatsApp |
 | `/politica-de-privacidade` | `politica-de-privacidade.html` | Política de Privacidade (LGPD) |
+| `/portfolio` | `portfolio.html` | Portfólio: projetos entregues + catálogo de soluções |
 | `/links` | `links.html` | Hub de links (tema claro) para bio de redes sociais |
 
 O link da política fica na faixa de baixo do rodapé, entre o copyright e o CNPJ, nas três páginas — não na lista de seções, onde ficava perdido como nono item.
@@ -34,6 +35,19 @@ O botão **API do WhatsApp** fica no menu do topo da página inicial (e dentro d
 As duas páginas compartilham `assets/` e `assets/js/main.js`, mas cada uma tem o próprio CSS inline (é o que mantém uma requisição só por página). Mexeu no menu, no rodapé ou nos tokens de cor? Replique nas duas.
 
 O caminho sem `.html` funciona por `cleanUrls` na Vercel; o `scripts/serve.js` faz o mesmo no local.
+
+## Portfólio (`/portfolio`)
+
+29 cards com filtro por categoria: sistemas, landing pages, automações, robôs e bots e reforma tributária.
+
+**A separação entre os dois selos é proposital e precisa ser mantida:**
+
+- **Entregue** — os 6 projetos que estão no ar de verdade, com foto e link quando há.
+- **Solução** — as 23 soluções que a Heavex constrói sob medida, com ícone no lugar de foto.
+
+Nenhum item do catálogo é apresentado como caso entregue. Se um projeto do catálogo virar entrega real, troque o selo, acrescente a imagem em `assets/images/projetos/` e o link.
+
+A página é gerada por script (`build-portfolio.py`, guardado com o material da sessão): ele reaproveita tokens, menu e rodapé de `api-whatsapp.html`, então mudança de menu ou rodapé feita lá entra aqui ao regerar. A lista de projetos fica em `PROJETOS`, no próprio script.
 
 ## Página de links (`/links`)
 
@@ -104,6 +118,8 @@ Depois, suba o `?v=` nas referências (os assets usam cache de 1 ano).
 | `/politica-de-privacidade` desktop | 100 | 100 | 100 | 100 | 0,3 s |
 | `/links` mobile | 100 | 100 | 100 | 100 | 0,9 s |
 | `/links` desktop | 100 | 100 | 100 | 100 | 0,3 s |
+| `/portfolio` mobile | 100 | 100 | 100 | 100 | 1,0 s |
+| `/portfolio` desktop | 100 | 100 | 100 | 100 | 0,3 s |
 
 Fluidez no celular (390 px, DPR 3, CPU 4× mais lenta, rolagem da página inteira): ~58 fps de média e p95 de 16,8 ms por quadro. É o mesmo resultado da página sem animação nenhuma.
 
