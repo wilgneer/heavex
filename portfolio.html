@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfólio — Heavex</title>
+<meta name="description" content="Projetos entregues e soluções que a Heavex desenvolve: sistemas, landing pages, automações, robôs e bots e sistemas para a reforma tributária.">
+<meta name="theme-color" content="#030504">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://heavex.com.br/portfolio">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Heavex">
+<meta property="og:title" content="Portfólio — Heavex">
+<meta property="og:description" content="Projetos entregues e soluções que a Heavex desenvolve.">
+<meta property="og:url" content="https://heavex.com.br/portfolio">
+<meta property="og:image" content="https://heavex.com.br/assets/images/og-heavex.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Heavex — o futuro que melhora processos">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/images/favicon.svg?v=1" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=1">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --bg:#030504;
+  --panel:#000;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.14);
+  --text:#f4f7f5;
+  --muted:#a3aba6;
+  --dim:#7f8782;
+  --green:#35e55f;
+  --green-deep:#0e8129;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI Variable Display","Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,"Roboto Mono",Consolas,monospace;
+  --nav-h:64px;
+  --gutter:16px;
+}
+@media (min-width:768px){:root{--gutter:32px}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--bg);color-scheme:dark;scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;overflow-x:clip}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,figure{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:8px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:fixed;left:16px;top:16px;z-index:100;padding:10px 16px;border-radius:999px;background:var(--green-deep);color:#fff;font-weight:600;transform:translateY(-200%);opacity:0}
+.skip:focus{transform:none;opacity:1}
+.wrap{width:min(100% - var(--gutter) * 2,1200px);margin-inline:auto}
+
+/* ── Navegação ───────────────────────────────────────── */
+.nav{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top)}
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(3,5,4,.94);border-bottom:1px solid var(--line);opacity:0;transition:opacity .4s var(--ease)}
+.nav.is-solid::before,.nav.is-open::before{opacity:1}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--nav-h)}
+.brand{display:flex;align-items:center;min-height:44px}
+.brand img{height:32px;width:auto}
+.nav-toggle{position:relative;width:44px;height:44px;margin-right:-10px;display:grid;place-items:center}
+.nav-toggle i{position:absolute;left:12px;right:12px;height:1.5px;background:#fff;border-radius:2px;transition:transform .35s var(--ease)}
+.nav-toggle i:first-child{transform:translateY(-4px)}
+.nav-toggle i:last-child{transform:translateY(4px)}
+.nav.is-open .nav-toggle i:first-child{transform:rotate(45deg)}
+.nav.is-open .nav-toggle i:last-child{transform:rotate(-45deg)}
+.nav-menu{position:absolute;top:100%;left:0;right:0;display:none;max-height:calc(100svh - var(--nav-h));overflow-y:auto;padding:8px var(--gutter) calc(24px + env(safe-area-inset-bottom));background:#030504;border-bottom:1px solid var(--line)}
+.nav.is-open .nav-menu{display:block}
+.nav-links a{display:flex;align-items:center;justify-content:space-between;min-height:56px;border-bottom:1px solid var(--line);font-size:1.125rem;letter-spacing:-.01em}
+.nav-links a::after{content:"→";color:var(--green);font-family:var(--mono)}
+.nav-cta{margin-top:20px;width:100%;justify-content:center}
+@media (min-width:900px){
+  .nav::before{background:rgba(3,5,4,.72);-webkit-backdrop-filter:saturate(160%) blur(18px);backdrop-filter:saturate(160%) blur(18px)}
+  .nav-toggle{display:none}
+  .nav-menu{position:static;display:flex;align-items:center;gap:20px;max-height:none;overflow:visible;padding:0;background:none;border:0}
+  .nav-links{display:flex;gap:2px}
+  .nav-links a{min-height:40px;padding:0 12px;border:0;border-radius:999px;font-size:.8125rem;color:var(--muted);transition:color .2s,background-color .2s}
+  .nav-links a::after{content:none}
+  .nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  .nav-cta{margin:0;width:auto;min-height:40px;padding:0 18px;font-size:.8125rem}
+}
+
+/* ── Base ────────────────────────────────────────────── */
+.kicker{display:inline-flex;align-items:center;gap:12px;font:500 .75rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.kicker::before{content:"";width:28px;height:1px;background:currentColor;box-shadow:0 0 8px currentColor}
+.h2{margin-top:18px;font-size:clamp(1.875rem,7.4vw,3.75rem);font-weight:700;line-height:1;letter-spacing:-.04em;text-transform:uppercase;text-wrap:balance}
+.section{position:relative;padding:clamp(72px,10vw,128px) 0}
+.section::before{content:"";position:absolute;top:0;left:50%;width:min(1200px,100% - var(--gutter) * 2);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--line-2) 20%,var(--line-2) 80%,transparent)}
+.lead{margin-top:18px;max-width:52ch;font-size:clamp(1.0625rem,1.6vw,1.25rem);line-height:1.55;color:#c9d1cc;text-wrap:pretty}
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 26px;border-radius:999px;overflow:hidden;font-size:1rem;font-weight:600;white-space:nowrap;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-green{background:var(--green-deep);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 0 1px rgba(53,229,95,.6),0 12px 40px -12px rgba(53,229,95,.75)}
+.btn-green::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:sheen 4.5s var(--ease) 1.2s infinite;animation-play-state:paused}
+.is-live .btn-green::after,.nav-cta::after{animation-play-state:running}
+@keyframes sheen{0%{transform:translateX(-120%)}35%,100%{transform:translateX(120%)}}
+.btn-ghost{border:1px solid var(--line-2);color:#dfe6e1}
+@media (hover:hover){
+  .btn-green:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 0 0 1px var(--green),0 18px 50px -12px rgba(53,229,95,.95)}
+  .btn-ghost:hover{border-color:var(--green);color:#fff}
+}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal.is-in{opacity:1;transform:none}
+
+/* ── Portfólio ───────────────────────────────────────── */
+.ph{position:relative;isolation:isolate;overflow:hidden;padding:calc(var(--nav-h) + 56px) 0 8px}
+.ph::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(70% 55% at 20% 0%,rgba(53,229,95,.16),transparent 62%)}
+.ph::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.4;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(70% 70% at 30% 20%,#000,transparent 75%);mask-image:radial-gradient(70% 70% at 30% 20%,#000,transparent 75%)}
+.h1{margin-top:20px;font-size:clamp(2.25rem,9vw,4.5rem);font-weight:700;line-height:.95;letter-spacing:-.045em;text-transform:uppercase;text-wrap:balance;background:linear-gradient(180deg,#fff 40%,#b9c4bd 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.resumo{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.resumo span{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border:1px solid var(--line-2);border-radius:999px;background:rgba(0,0,0,.4);font:500 .75rem/1 var(--mono);letter-spacing:.1em;color:#dfe6e1}
+.resumo b{font-weight:600;color:var(--green)}
+.filtros{position:sticky;top:calc(var(--nav-h) + env(safe-area-inset-top));z-index:20;margin-top:40px;padding:14px 0;background:rgba(3,5,4,.92)}
+.filtros-in{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter)}
+.filtros-in::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:42px;padding:0 16px;border:1px solid var(--line-2);border-radius:999px;font-size:.875rem;font-weight:500;color:var(--muted);white-space:nowrap;transition:color .2s,border-color .2s,background-color .2s}
+.chip.is-on{border-color:var(--green);background:rgba(53,229,95,.12);color:#eafff0}
+@media (hover:hover){.chip:hover{color:#fff;border-color:rgba(53,229,95,.5)}}
+.grade{display:grid;gap:16px;padding:24px 0 clamp(72px,10vw,120px)}
+@media (min-width:640px){.grade{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.grade{grid-template-columns:repeat(3,1fr);gap:20px}}
+.pcard{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,#070a08,#000);overflow:hidden;transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)}
+.pcard[hidden]{display:none}
+.pcard-media{display:block;aspect-ratio:16/10;border-bottom:1px solid var(--line);background:#050605;overflow:hidden}
+.pcard-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.pcard-art{display:grid;place-items:center;aspect-ratio:16/7;border-bottom:1px solid var(--line);color:var(--green);background:radial-gradient(70% 90% at 50% 120%,rgba(53,229,95,.16),transparent 70%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/22px 22px}
+.pcard-art svg{width:40px;height:40px;transition:transform .4s var(--ease)}
+.pcard-body{display:flex;flex:1;flex-direction:column;padding:20px}
+.selo{align-self:flex-start;padding:5px 10px;border:1px solid var(--line-2);border-radius:999px;font:600 .5625rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.selo-ok{border-color:rgba(53,229,95,.4);background:rgba(53,229,95,.1);color:#9df0b4}
+.pcard-title{margin-top:12px;font-size:1.25rem;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.pcard-desc{margin-top:8px;color:var(--muted);font-size:.9375rem;line-height:1.5;text-wrap:pretty}
+.pcard-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:18px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags li{padding:5px 9px;border:1px solid var(--line-2);border-radius:999px;font:500 .625rem/1 var(--mono);letter-spacing:.06em;color:#c3cbc6}
+.pcard-link{display:inline-flex;align-items:center;gap:6px;min-height:44px;font:500 .75rem/1 var(--mono);color:#fff}
+.pcard-link::after{content:"";position:absolute;inset:0}
+@media (hover:hover){
+  .pcard:hover{border-color:rgba(53,229,95,.45);transform:translateY(-4px);box-shadow:0 24px 60px -30px rgba(53,229,95,.45)}
+  .pcard:hover .pcard-media img{transform:scale(1.04)}
+  .pcard:hover .pcard-art svg{transform:scale(1.12)}
+  .pcard-link:hover{color:var(--green)}
+}
+.vazio{padding:40px 0;text-align:center;color:var(--muted)}
+.final{position:relative;overflow:hidden;margin-bottom:clamp(72px,10vw,120px);padding:clamp(44px,7vw,68px) clamp(24px,5vw,56px);border:1px solid var(--line-2);border-radius:28px;background:radial-gradient(80% 90% at 0% 0%,rgba(53,229,95,.14),transparent 60%),linear-gradient(180deg,#070a08,#000)}
+.final h2{font-size:clamp(1.625rem,5vw,2.5rem);font-weight:700;letter-spacing:-.035em;line-height:1.05;text-wrap:balance}
+.final p{margin-top:14px;max-width:56ch;color:#c9d1cc;line-height:1.55}
+.final .btn{margin-top:26px}
+@media (max-width:519.98px){.final .btn{width:100%;justify-content:center}}
+
+/* ── Rodapé ──────────────────────────────────────────── */
+.foot{position:relative;padding:clamp(56px,7vw,88px) 0 calc(28px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(53,229,95,.04),transparent 45%)}
+.foot::before{content:"";position:absolute;top:-1px;left:50%;width:min(560px,80%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--green),transparent);box-shadow:0 0 18px rgba(53,229,95,.8)}
+.foot-grid{display:grid;gap:40px}
+@media (min-width:720px){.foot-grid{grid-template-columns:repeat(2,1fr);gap:40px 32px}}
+@media (min-width:1024px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:48px 32px}}
+.foot-sobre .brand{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.foot-sobre .brand img{height:34px;width:auto}
+.foot-sobre p{margin-top:16px;max-width:34ch;font-size:.9375rem;line-height:1.6;color:var(--muted);text-wrap:pretty}
+.foot-legal{margin-top:20px;font:500 .6875rem/1.7 var(--mono);letter-spacing:.04em;color:var(--dim)}
+.foot-legal b{display:block;font-weight:500;color:#c3cbc6}
+.foot-col h3{font:500 .6875rem/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.foot-col ul{margin-top:18px;display:grid;gap:2px}
+.foot-col a{display:inline-flex;align-items:center;min-height:38px;font-size:.9375rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.foot-contato address{font-style:normal}
+.foot-contato ul{margin-top:18px;display:grid;gap:4px}
+.foot-contato a,.foot-contato .item{display:flex;align-items:flex-start;gap:12px;min-height:44px;padding:6px 0;font-size:.9375rem;line-height:1.45;color:#dfe6e1;text-decoration:none;transition:color .2s}
+.foot-contato svg{width:19px;height:19px;flex:none;margin-top:2px;color:var(--green)}
+.foot-contato small{display:block;font:500 .625rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+@media (hover:hover){.foot-col a:hover{color:#fff}.foot-contato a:hover{color:var(--green)}.foot-contato a:hover svg{color:#eafff0}}
+.foot-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px;margin-top:clamp(40px,5vw,56px);padding-top:24px;border-top:1px solid var(--line);font:500 .75rem/1.7 var(--mono);letter-spacing:.06em;color:var(--dim)}
+.foot-bottom nav{display:flex;flex-wrap:wrap;gap:4px 20px}
+.foot-bottom a{display:inline-flex;align-items:center;min-height:44px;color:#c3cbc6;text-decoration:none;border-bottom:1px solid rgba(53,229,95,.45);transition:color .2s,border-color .2s}
+@media (hover:hover){.foot-bottom a:hover{color:var(--green);border-color:var(--green)}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn-green::after{display:none}
+  .pcard,.pcard-media img,.pcard-art svg{transition:none}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Portfólio — Heavex","url":"https://heavex.com.br/portfolio","about":{"@type":"Organization","name":"Heavex","legalName":"HEAVEX SOLUTIONS TECH LTDA","taxID":"69.138.557/0001-90"}}</script>
+<script src="assets/js/portfolio.js?v=1" defer></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav" data-nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="Heavex — início">
+      <img src="assets/images/logo-nav.webp?v=1" width="146" height="72" alt="Heavex" decoding="async">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu" data-nav-toggle><i></i><i></i></button>
+    <div class="nav-menu" id="nav-menu">
+      <nav aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="/#quem-somos">Quem somos</a></li>
+          <li><a href="/#o-que-fazemos">O que fazemos</a></li>
+          <li><a href="/portfolio" aria-current="page">Portfólio</a></li>
+          <li><a href="/api-whatsapp">API do WhatsApp</a></li>
+          <li><a href="/">Voltar ao site</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-green nav-cta" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20API%20oficial%20do%20WhatsApp." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+        Fale conosco
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="ph" aria-labelledby="ph-title">
+    <div class="wrap">
+      <p class="kicker">Portfólio</p>
+      <h1 class="h1" id="ph-title">O que a Heavex constrói</h1>
+      <p class="lead">Projetos no ar e soluções que desenvolvemos sob medida — de uma landing page a um sistema inteiro de operação.</p>
+      <div class="resumo">
+        <span><b>6</b> projetos entregues</span>
+        <span><b>23</b> soluções no catálogo</span>
+        <span><b>5</b> frentes de atuação</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="filtros">
+    <div class="wrap">
+      <div class="filtros-in" role="group" aria-label="Filtrar por tipo">
+          <button class="chip is-on" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+          <button class="chip" type="button" data-filtro="sistemas" aria-pressed="false">Sistemas</button>
+          <button class="chip" type="button" data-filtro="landing" aria-pressed="false">Landing pages</button>
+          <button class="chip" type="button" data-filtro="automacoes" aria-pressed="false">Automações</button>
+          <button class="chip" type="button" data-filtro="bots" aria-pressed="false">Robôs e bots</button>
+          <button class="chip" type="button" data-filtro="fiscal" aria-pressed="false">Reforma tributária</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h2 class="sr-only">Projetos entregues e soluções</h2>
+    <div class="grade" id="grade">
+        <article class="pcard" data-cat="sistemas">
+          <picture class="pcard-media"><source type="image/avif" srcset="assets/images/projetos/lq-professional-480.avif 480w, assets/images/projetos/lq-professional-800.avif 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw"><img src="assets/images/projetos/lq-professional-800.webp" srcset="assets/images/projetos/lq-professional-480.webp 480w, assets/images/projetos/lq-professional-800.webp 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw" width="800" height="500" alt="L'Q Professional" loading="lazy" decoding="async"></picture>
+          <div class="pcard-body">
+            <span class="selo selo-ok">Entregue</span>
+            <h3 class="pcard-title">L'Q Professional</h3>
+            <p class="pcard-desc">E-commerce completo de produtos profissionais de beleza, integrado a ERP, pagamento e frete em tempo real.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Bling</li><li>PagBank</li><li>Melhor Envio</li></ul>
+              <a class="pcard-link" href="https://lqprofessional.com.br" target="_blank" rel="noopener noreferrer">lqprofessional.com.br<span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="landing">
+          <picture class="pcard-media"><source type="image/avif" srcset="assets/images/projetos/destrave-sua-voz-480.avif 480w, assets/images/projetos/destrave-sua-voz-800.avif 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw"><img src="assets/images/projetos/destrave-sua-voz-800.webp" srcset="assets/images/projetos/destrave-sua-voz-480.webp 480w, assets/images/projetos/destrave-sua-voz-800.webp 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw" width="800" height="500" alt="Destrave sua Voz" loading="lazy" decoding="async"></picture>
+          <div class="pcard-body">
+            <span class="selo selo-ok">Entregue</span>
+            <h3 class="pcard-title">Destrave sua Voz</h3>
+            <p class="pcard-desc">Página da imersão em oratória, com venda de ingressos, captação de leads e painel de gestão.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Ingressos</li><li>Leads</li><li>Painel</li></ul>
+              <a class="pcard-link" href="https://destravesuavozbh.com.br" target="_blank" rel="noopener noreferrer">destravesuavozbh.com.br<span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="sistemas">
+          <picture class="pcard-media"><source type="image/avif" srcset="assets/images/projetos/evolution-480.avif 480w, assets/images/projetos/evolution-800.avif 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw"><img src="assets/images/projetos/evolution-800.webp" srcset="assets/images/projetos/evolution-480.webp 480w, assets/images/projetos/evolution-800.webp 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw" width="800" height="500" alt="Evolution" loading="lazy" decoding="async"></picture>
+          <div class="pcard-body">
+            <span class="selo selo-ok">Entregue</span>
+            <h3 class="pcard-title">Evolution</h3>
+            <p class="pcard-desc">Plataforma de eventos e campeonatos de Jiu-Jitsu: inscrições, chaveamento, pesagem e resultados.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>React</li><li>Node</li><li>Supabase</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="sistemas">
+          <picture class="pcard-media"><source type="image/avif" srcset="assets/images/projetos/dra-ana-carolina-480.avif 480w, assets/images/projetos/dra-ana-carolina-800.avif 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw"><img src="assets/images/projetos/dra-ana-carolina-800.webp" srcset="assets/images/projetos/dra-ana-carolina-480.webp 480w, assets/images/projetos/dra-ana-carolina-800.webp 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw" width="800" height="500" alt="Clínica Dra. Ana Carolina" loading="lazy" decoding="async"></picture>
+          <div class="pcard-body">
+            <span class="selo selo-ok">Entregue</span>
+            <h3 class="pcard-title">Clínica Dra. Ana Carolina</h3>
+            <p class="pcard-desc">Gestão clínica completa: agenda, atendimentos, anamnese digital, financeiro e estoque por lote.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>React</li><li>Firebase</li><li>TypeScript</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="landing">
+          <picture class="pcard-media"><source type="image/avif" srcset="assets/images/projetos/master-education-480.avif 480w, assets/images/projetos/master-education-800.avif 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw"><img src="assets/images/projetos/master-education-800.webp" srcset="assets/images/projetos/master-education-480.webp 480w, assets/images/projetos/master-education-800.webp 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw" width="800" height="500" alt="Master Education" loading="lazy" decoding="async"></picture>
+          <div class="pcard-body">
+            <span class="selo selo-ok">Entregue</span>
+            <h3 class="pcard-title">Master Education</h3>
+            <p class="pcard-desc">Página de alta conversão para evento high ticket, leve e rápida no celular.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>Performance</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="landing">
+          <picture class="pcard-media"><source type="image/avif" srcset="assets/images/projetos/maison-alto-valor-480.avif 480w, assets/images/projetos/maison-alto-valor-800.avif 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw"><img src="assets/images/projetos/maison-alto-valor-800.webp" srcset="assets/images/projetos/maison-alto-valor-480.webp 480w, assets/images/projetos/maison-alto-valor-800.webp 800w" sizes="(min-width:1024px) 380px, (min-width:640px) 46vw, 92vw" width="800" height="500" alt="Maison Alto Valor" loading="lazy" decoding="async"></picture>
+          <div class="pcard-body">
+            <span class="selo selo-ok">Entregue</span>
+            <h3 class="pcard-title">Maison Alto Valor</h3>
+            <p class="pcard-desc">Site de posicionamento com captação de leads para consultoria B2B.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>HTML</li><li>Leads</li><li>GTM</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="fiscal">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2Z"/><path d="M9.5 8h5M9.5 12h5M9.5 15.5h3"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Simulador de Impacto da Reforma</h3>
+            <p class="pcard-desc">Compara a carga atual com CBS e IBS por produto, serviço e cenário, para a empresa enxergar o efeito no preço e na margem antes da virada.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>CBS/IBS</li><li>Simulação</li><li>Margem</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="fiscal">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2Z"/><path d="M9.5 8h5M9.5 12h5M9.5 15.5h3"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Motor de Cálculo CBS e IBS</h3>
+            <p class="pcard-desc">API de cálculo com alíquotas por UF e município, regimes diferenciados e apuração de crédito, pronta para plugar no ERP ou no checkout.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>API</li><li>Alíquotas</li><li>Crédito</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="fiscal">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2Z"/><path d="M9.5 8h5M9.5 12h5M9.5 15.5h3"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Painel de Transição Tributária</h3>
+            <p class="pcard-desc">Acompanha o período em que os tributos antigos e os novos convivem, com o paralelo dos dois regimes lado a lado e a projeção por ano.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Dashboard</li><li>Transição</li><li>Projeção</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="fiscal">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3.2"/><path d="M4 6v12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V6"/><path d="M4 12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Revisor de Cadastro Fiscal</h3>
+            <p class="pcard-desc">Audita NCM, CST e CFOP dos itens, aponta divergências e prepara a base para a virada, porque cadastro errado vira imposto errado.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>NCM</li><li>CST</li><li>Auditoria</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="fiscal">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.4"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Conciliador de Split Payment</h3>
+            <p class="pcard-desc">Concilia o recolhimento feito na liquidação com pedidos e recebíveis, apontando divergência por transação.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Conciliação</li><li>Recebíveis</li><li>Fiscal</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="bots">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 1 1-3.3-6.5"/><path d="M21 4v5h-5"/><path d="M8.5 11h7M8.5 14.5h4"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Bot de Atendimento no WhatsApp</h3>
+            <p class="pcard-desc">Atende pela API oficial: faz triagem, responde o que se repete, registra o contato e passa para um humano no ponto certo.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>API oficial</li><li>Triagem</li><li>Handoff</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="bots">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7.5" width="16" height="12" rx="3"/><path d="M12 3v4.5M8.5 13h.01M15.5 13h.01M9.5 16.5h5"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Robô de Portais e Documentos</h3>
+            <p class="pcard-desc">Entra em portais públicos e privados, consulta, baixa documentos e organiza tudo, com registro de cada execução.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>RPA</li><li>Agendado</li><li>Log</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="bots">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3.2"/><path d="M4 6v12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V6"/><path d="M4 12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Robô de Conciliação Bancária</h3>
+            <p class="pcard-desc">Importa extratos, casa lançamentos com o financeiro e separa o que sobrou para olho humano.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>OFX</li><li>Financeiro</li><li>Regras</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="bots">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 1 1-3.3-6.5"/><path d="M21 4v5h-5"/><path d="M8.5 11h7M8.5 14.5h4"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Bot de Agendamento</h3>
+            <p class="pcard-desc">Agenda, confirma, lembra e remarca sozinho, direto no WhatsApp, com a agenda da empresa como fonte da verdade.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Agenda</li><li>Lembretes</li><li>Confirmação</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="bots">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7.5" width="16" height="12" rx="3"/><path d="M12 3v4.5M8.5 13h.01M15.5 13h.01M9.5 16.5h5"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Monitor de Preços e Concorrência</h3>
+            <p class="pcard-desc">Varre páginas e marketplaces em horários definidos, guarda o histórico e avisa quando algo muda.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Monitoramento</li><li>Histórico</li><li>Alertas</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="automacoes">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.4"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Integrador ERP e Loja</h3>
+            <p class="pcard-desc">Mantém produto, estoque, preço e pedido em sincronia entre o ERP e a loja ou o marketplace, sem redigitação.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>ERP</li><li>Estoque</li><li>Pedidos</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="automacoes">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.4"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Automação de Propostas e Contratos</h3>
+            <p class="pcard-desc">Gera o documento a partir dos dados do negócio, envia para assinatura, acompanha o status e arquiva.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Documentos</li><li>Assinatura</li><li>Arquivo</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="automacoes">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 1 1-3.3-6.5"/><path d="M21 4v5h-5"/><path d="M8.5 11h7M8.5 14.5h4"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Alertas Operacionais</h3>
+            <p class="pcard-desc">Transforma evento do sistema em aviso: estoque no limite, pedido parado, prazo vencendo, falha de integração.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Regras</li><li>WhatsApp</li><li>E-mail</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="automacoes">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3.2"/><path d="M4 6v12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V6"/><path d="M4 12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Rotina de Backup e Integridade</h3>
+            <p class="pcard-desc">Cópia automática em nuvem, teste periódico de restauração e verificação de integridade do banco.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Backup</li><li>Nuvem</li><li>Restauração</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="automacoes">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3.2"/><path d="M4 6v12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V6"/><path d="M4 12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Relatório Automático de Fechamento</h3>
+            <p class="pcard-desc">Consolida os números do período e entrega o relatório pronto no dia e na hora combinados.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>BI</li><li>Agendado</li><li>PDF</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="sistemas">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5Z"/><path d="M3 8.5h18M7 12.5h6M7 16h9"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Sistema de Ordens de Serviço</h3>
+            <p class="pcard-desc">Ordem aberta no escritório, executada em campo pelo celular mesmo sem internet, com assinatura na tela e histórico.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Offline-first</li><li>Assinatura</li><li>Campo</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="sistemas">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 6.5 6-2.5 6 2.5 6-2.5v13L15 19.5 9 17l-6 2.5Z"/><path d="M9 4v13M15 6.5v13"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Gestão de Frota e Rotas</h3>
+            <p class="pcard-desc">Mostra onde a equipe está, qual rota faz sentido, quanto se gasta por trajeto e onde estão os gargalos no mapa.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Geolocalização</li><li>Rotas</li><li>BI geográfico</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="sistemas">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5Z"/><path d="M3 8.5h18M7 12.5h6M7 16h9"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">CRM Sob Medida</h3>
+            <p class="pcard-desc">Funil do jeito que a empresa vende de verdade, com histórico de contato, tarefas e integração com o WhatsApp.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Funil</li><li>Histórico</li><li>WhatsApp</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="sistemas">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5Z"/><path d="M3 8.5h18M7 12.5h6M7 16h9"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Portal do Cliente</h3>
+            <p class="pcard-desc">Área onde o cliente acompanha pedido, contrato, documento e segunda via, sem precisar ligar para a empresa.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Autoatendimento</li><li>Documentos</li><li>Acesso</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="sistemas">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3.2"/><path d="M4 6v12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V6"/><path d="M4 12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Painel de Indicadores</h3>
+            <p class="pcard-desc">Os números que decidem o dia em uma tela só, atualizados pela própria operação, sem planilha no meio.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Dashboard</li><li>Tempo real</li><li>Dados</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="landing">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 8h18M7 12h10M7 15.5h6"/><rect x="14" y="14.5" width="4.5" height="2.5" rx="1.25"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Landing Page de Captação</h3>
+            <p class="pcard-desc">Página focada em uma ação, com formulário ou WhatsApp, feita para carregar rápido no celular.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Conversão</li><li>Performance</li><li>Mobile</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="landing">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 8h18M7 12h10M7 15.5h6"/><rect x="14" y="14.5" width="4.5" height="2.5" rx="1.25"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Landing Page Editável</h3>
+            <p class="pcard-desc">A equipe troca texto, imagem e oferta por um painel, sem depender de desenvolvedor para cada ajuste.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Painel</li><li>Autonomia</li><li>CMS</li></ul>
+              
+            </div>
+          </div>
+        </article>
+        <article class="pcard" data-cat="landing">
+          <div class="pcard-art" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 8h18M7 12h10M7 15.5h6"/><rect x="14" y="14.5" width="4.5" height="2.5" rx="1.25"/></svg></div>
+          <div class="pcard-body">
+            <span class="selo">Solução</span>
+            <h3 class="pcard-title">Página de Evento com Ingressos</h3>
+            <p class="pcard-desc">Programação, lotes, inscrição e pagamento na mesma página, com controle de vagas.</p>
+            <div class="pcard-foot">
+              <ul class="tags"><li>Ingressos</li><li>Lotes</li><li>Pagamento</li></ul>
+              
+            </div>
+          </div>
+        </article>
+    </div>
+    <p class="vazio" hidden data-vazio>Nenhum item nesta categoria.</p>
+
+    <section class="final" aria-labelledby="final-title">
+      <h2 id="final-title">Tem um processo que precisa virar sistema?</h2>
+      <p>Conte como funciona hoje. A gente desenha o fluxo, mostra o caminho e coloca no ar.</p>
+      <a class="btn btn-green" href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Vim%20pelo%20portf%C3%B3lio%20da%20Heavex." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+        Falar com a Heavex<span class="sr-only"> pelo WhatsApp (abre em nova aba)</span>
+      </a>
+    </section>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+
+      <div class="foot-sobre">
+        <a class="brand" href="/" aria-label="Heavex — início">
+          <img src="assets/images/logo-nav.webp?v=1" width="146" height="72" alt="Heavex" loading="lazy" decoding="async">
+        </a>
+        <p>Tecnologia que organiza processos: estratégia visual, mobilidade, sistemas, treinamento e segurança.</p>
+        <p class="foot-legal">
+          <b>HEAVEX SOLUTIONS TECH LTDA</b>
+          CNPJ 69.138.557/0001-90
+        </p>
+      </div>
+
+      <nav class="foot-col" aria-labelledby="foot-sol">
+        <h3 id="foot-sol">Soluções</h3>
+        <ul>
+          <li><a href="/#o-que-fazemos">Experience</a></li>
+          <li><a href="/#o-que-fazemos">Mobility Intelligence</a></li>
+          <li><a href="/#o-que-fazemos">Business Systems</a></li>
+          <li><a href="/#o-que-fazemos">Academy</a></li>
+          <li><a href="/#o-que-fazemos">Security</a></li>
+          <li><a href="/api-whatsapp">API do WhatsApp</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-labelledby="foot-emp">
+        <h3 id="foot-emp">Empresa</h3>
+        <ul>
+          <li><a href="/#quem-somos">Quem somos</a></li>
+          <li><a href="/#metodo">Nosso método</a></li>
+          <li><a href="/#como-funciona">Como funciona</a></li>
+          <li><a href="/#resultados">Resultados</a></li>
+          <li><a href="/portfolio">Portfólio</a></li>
+          <li><a href="/#clientes">Clientes</a></li>
+          <li><a href="/politica-de-privacidade">Política de Privacidade</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col foot-contato">
+        <h3 id="foot-contato">Contato</h3>
+        <address>
+          <ul aria-labelledby="foot-contato">
+            <li><a href="mailto:contato@heavex.com.br"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg><span><small>E-mail</small>contato@heavex.com.br</span></a></li>
+            <li><a href="https://wa.me/5531999895589?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Heavex." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span><small>WhatsApp</small>(31) 99989-5589<span class="sr-only"> (abre em nova aba)</span></span></a></li>
+            <li><a href="tel:+5531936180768"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z"/></svg><span><small>Telefone</small>(31) 93618-0768</span></a></li>
+            <li><span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span><small>Endereço</small>Rua Mariana, 205<br>Belo Horizonte — MG, Brasil</span></span></li>
+            <!-- TODO (Wilgner): confirmar bairro e CEP para bater com o cadastro do CNPJ -->
+          </ul>
+        </address>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <p>© 2026 HEAVEX SOLUTIONS TECH LTDA · CNPJ 69.138.557/0001-90</p>
+      <nav aria-label="Links legais">
+        <a href="/politica-de-privacidade">Política de Privacidade</a>
+      </nav>
+      <p>Belo Horizonte · MG · Brasil</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
